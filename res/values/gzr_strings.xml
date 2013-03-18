@@ -116,6 +116,23 @@
     <!-- Swap recents and back buttons -->
     <string name="hardware_keys_app_switch_swap_button_title">Swap hw buttons</string>
     <string name="hardware_keys_app_switch_swap_button_summary">Swap the order of recents and back buttons</string>
+
+   <string name="category_calibration">Calibration</string>
+    <string name="display_and_lights">Display &amp; lights</string>
+
+    <!-- Category title for Charging sounds (Power state change) specific Settings.
+         [CHAR LIMIT=40] -->
+    <string name="power_notifications_category_title">Charging sounds</string>
+
+    <!-- Sound settings, Charging sounds enable/disable, setting check box label -->
+    <string name="power_notifications_enable_title">Enable</string>
+    <string name="power_notifications_enable_summary">Play a sound when connecting or disconnecting the charger</string>
+    <!-- Sound settings, Charging sounds vibrate enable/disable, setting check box label -->
+    <string name="power_notifications_vibrate_title">Vibrate</string>
+    <!-- Sound settings, Charging sounds ringtone selection, preference label -->
+    <string name="power_notifications_ringtone_title">Notification sound</string>
+    <!-- Sound settings, charging sounds label for ringtone == none -->
+    <string name="power_notifications_ringtone_silent">Silent</string>
     
 </resources>
 
