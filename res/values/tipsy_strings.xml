@@ -20,5 +20,8 @@
 
     <!-- Performance -->
     <string name="performance_settings">Performance</string>
+   <!-- Restart SystemUI -->
+    <string name="restart_systemui">Restart SystemUI</string>
+
 </resources>
 
