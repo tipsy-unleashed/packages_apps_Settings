@@ -352,4 +352,8 @@
     <string name="developer_tools_title">Developer tools</string>
     <string name="developer_tools_summary">Advanced debugging tools</string>
 
+    <!-- Gesture Settings -->
+    <!-- Settings main menu entry -->
+    <string name="gesture_settings_title">Gestures</string>
+
 </resources>
