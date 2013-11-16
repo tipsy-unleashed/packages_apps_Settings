@@ -1120,4 +1120,8 @@
     <!-- SIM -->
     <string name="sim_no_number_set">No number assigned</string>
 
+    <!-- Font size sample text. This needs to be a very short string, as it is shown in
+         multiple font sizes in a limited amount of space. -->
+    <string name="font_size_sample">Sample</string>
+
 </resources>
