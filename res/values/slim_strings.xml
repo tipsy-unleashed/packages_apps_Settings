@@ -1267,6 +1267,9 @@
     <string name="title_tile_performance_profile">Performance profile</string>
     <string name="performance_settings_title">Performance for noobs</string>
 
+    <!-- Rescan storage -->
+    <string name="storage_rescan_media">Rescan media for the storage volume</string>
+
     <!-- Performance Settings : Performance profile settings -->
     <string name="perf_profile_title">Profile</string>
     <string name="perf_profile_summary" translatable="false">%s</string>
