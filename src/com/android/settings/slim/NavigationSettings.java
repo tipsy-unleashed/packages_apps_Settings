@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 SlimRoms
+ * Copyright (C) 2013-2015 SlimRoms
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,39 +16,27 @@
 
 package com.android.settings.slim;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.ServiceManager;
 import android.provider.Settings;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
-import android.preference.PreferenceCategory;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.SwitchPreference;
 import android.view.IWindowManager;
-import android.os.ServiceManager;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class InterfaceSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class NavigationSettings extends SettingsPreferenceFragment {
 
     private static final String KEY_HARDWARE_KEYS = "hardwarekeys_settings";
-
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsLogger.TAVERN;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.slim_interface_settings);
-
+        
         // Hide Hardware Keys menu if device doesn't have any
         PreferenceScreen hardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
         int deviceKeys = getResources().getInteger(
@@ -59,11 +47,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
+    protected int getMetricsCategory() {
+        return -Integer.MAX_VALUE + 1;
     }
 }
