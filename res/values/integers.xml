@@ -7,5 +7,8 @@
     <integer name="maskPeriod">0xFFFF0000</integer>
 
     <integer name="dashboard_num_columns">2</integer>
+    
+    <!-- Minimum prediction score required to pass a gesture as recognized -->
+    <integer name="min_gesture_prediction_score">2</integer>
 </resources>
 
