@@ -1306,4 +1306,10 @@
         <item>Pink</item>
         <item>Red</item>
     </string-array>
+    <!-- SlimSizer -->
+    <string-array name="slimsizer_profile_array">
+        <item >Load Profile</item>
+        <item >Save Profile</item>
+    </string-array>
+
 </resources>
