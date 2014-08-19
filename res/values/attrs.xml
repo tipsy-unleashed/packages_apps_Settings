@@ -125,6 +125,11 @@
         <attr name="android:entryValues" />
     </declare-styleable>
 
+    <declare-styleable name="SeekBarPreference">
+        <attr name="unitsLeft" format="string" />
+        <attr name="unitsRight" format="string" />
+    </declare-styleable>
+
     <!-- For DSLV -->
     <declare-styleable name="DragSortListView">
         <attr name="collapsedHeight" format="dimension" />
