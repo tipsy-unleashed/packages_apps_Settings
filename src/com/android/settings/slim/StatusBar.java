@@ -159,6 +159,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(resolver, Settings.System.TICKER_ENABLED,
                     (Boolean) newValue ? 1 : 0);
             return true;
+        } else if (preference == mTicker) {
+            Settings.System.putInt(resolver, Settings.System.TICKER_ENABLED,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
         } else if (preference == mStatusBarBrightnessControl) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
