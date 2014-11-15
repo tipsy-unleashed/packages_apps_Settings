@@ -23,6 +23,8 @@
 -keep class com.tipsy.fragments.**
 -keep class com.kerneladiutor.mod.*
 
+-keep class com.android.settings.privacyguard.*
+
 # Keep click responders
 -keepclassmembers class com.android.settings.inputmethod.UserDictionaryAddWordActivity {
   *** onClick*(...);
