@@ -207,5 +207,4 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
         return false;
     }
-
 }
