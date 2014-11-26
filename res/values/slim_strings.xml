@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2014 SlimRoms Project
+<!-- Copyright (C) 2012-2015 SlimRoms Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -218,7 +218,7 @@
 
     <!-- Slim settings screens -->
     <string name="header_category_personalization">Personalization</string>
-    <string name="interface_settings_title">Tavern</string>
+    <string name="interface_settings_title">The Tavern</string>
     <string name="navigation_settings_title">Navigation</string>
 
     <!-- Color Picker -->
@@ -374,6 +374,11 @@
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Clock and date</string>
     <string name="status_bar_clock_title">Clock and date style</string>
+    <!-- Clock and date -->
+    <string name="status_bar_clock">Clock &amp; date</string>
+    <string name="status_bar_clock_title">Clock &amp; date style</string>
+    <string name="status_bar_clock_summary">Change various clock &amp; date options</string> 
+    <string name="clock_styles_summary">Customize clock styles and date format</string>
     <string name="clock_title_enable">Alignment</string>
     <string name="clock_enabled">Enabled</string>
     <string name="clock_disabled">Disabled</string>
@@ -390,6 +395,8 @@
     <string name="clock_date_display">Date</string>
     <string name="clock_date_display_summary">Display custom date before the clock</string>
     <string name="clock_date_style">Date style</string>
+    <string name="clock_date_style">Date</string>
+    <string name="clock_time_style">Time</string>
     <string name="clock_date_format">Date format</string>
     <string name="clock_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="clock_date_string_edittext_summary">Enter string</string>
@@ -810,6 +817,15 @@
     <string name="nav_button_color_mode_summary">Change the navigation bar button color mode</string>
     <string name="navigation_bar_glow_tint_title">Button glow color</string>
 
+    <!-- Nav bar customization -->
+    <string name="navigation_bar_buttons">Buttons &amp; layout</string>
+    <string name="navigation_bar_settings_summary">Edit and rearrange navigation bar buttons</string>
+    <string name="navigation_bar_help_text">To get started tap the edit icon to unlock the navigation bar for editing.\n\nYou can tap an icon to change its shortcut, or long press an icon to re-arrange the layout.\n\nTap save to commit your changes, or restore to reset the layout to default settings.</string>
+    <string name="navigation_restore_button_text">Restore\ndefaults</string>
+    <string name="navigation_edit_button_text">Edit</string>
+    <string name="navigation_save_button_text">Save</string>
+    <string name="navigation_bar_reset_message">Delete current settings and restore the default layout?</string>
+
     <!-- Data activity icons -->
     <string name="status_bar_show_network_activity_title">Network activity arrows</string>
 
@@ -834,53 +850,28 @@
     <string name="heads_up_time_out_10sec">10 seconds</string>
     <string name="heads_up_time_out_never">Never</string>
 
-    <!-- Pie Control -->
-    <string name="pie_control_title">SlimPIE</string>
-    <string name="pie_control_summary">Enable pie controls</string>
-    <string name="pie_control_size">Navigation size</string>
-    <string name="pie_control_trigger_positions">Trigger options</string>
-    <string name="pie_control_trigger_left">Trigger left screen border</string>
-    <string name="pie_control_trigger_bottom">Trigger bottom screen border</string>
-    <string name="pie_control_trigger_right">Trigger right screen border</string>
-    <string name="pie_control_trigger_top">Trigger top screen border</string>
-    <string name="pie_control_trigger_top_summary">Top pie does not show status and clock information</string>
-    <string name="pie_button_style">Buttons style</string>
-    <string name="pie_button_color_title">Button color</string>
-    <string name="pie_button_alpha_title">Button transparency</string>
-    <string name="pie_button_outline_color_title">Button outline color</string>
-    <string name="pie_button_pressed_color_title">Button pressed color</string>
-    <string name="pie_button_long_pressed_color_title">Button long pressed color</string>
-    <string name="pie_button_pressed_alpha_title">Button pressed transparency</string>
-    <string name="pie_icon_style">Button icon style</string>
-    <string name="pie_icon_color_title">Button icon color</string>
-    <string name="pie_icon_color_mode_title">Button icon color mode</string>
-    <string name="pie_icon_color_mode_dialog_title">Colorize</string>
-    <string name="pie_icon_color_mode_summary">Change the button icon color mode</string>
-    <string name="pie_trigger_note_title">Note</string>
-    <string name="pie_trigger_note_summary">To avoid conflicts with status bar or navigation bar, the triggers on these edges are automatically turned off if one or both are available</string>
-    <string name="pie_background_color_title">Background color</string>
-    <string name="pie_snap_color_title">Snap point color</string>
-    <string name="pie_text_color_title">Text color</string>
-    <string name="pie_background_alpha_title">Background transparency</string>
-    <string name="pie_mirror_right_title">Mirror right pie</string>
-    <string name="pie_mirror_right_summary">Mirror right pie on the horizontal axis</string>
-    <string name="pie_style">Style and dimension</string>
-    <string name="pie_style_title">Style</string>
-    <string name="pie_dimens_title">Dimension</string>
-    <string name="pie_show_snap_title">Show snap points</string>
-    <string name="pie_show_snap_summary">Shows snap points to change the trigger edge dynamically</string>
-    <string name="pie_show_text_title">Show status and clock</string>
-    <string name="pie_show_text_summary">Shows phone status, time and date information</string>
-    <string name="pie_show_background_title">Show background</string>
-    <string name="pie_show_background_summary">Enable pie background screen</string>
-    <string name="pie_button">Buttons</string>
-    <string name="pie_button_second_layer">Buttons second layer</string>
-    <string name="pie_button_second_layer_summary">Change second layer buttons</string>
-    <string name="pie_button_style_summary">Change pie button style</string>
-    <string name="pie_style_reset_message">Reset style entries to default?</string>
-    <string name="pie_warning_no_navigation_present">No other navigation is currently enabled. Turning off pie controls can result in an unusable device. Do you want to enable navigation bar instead?</string>
-    <string name="pie_trigger_warning">Minimum one of the main triggers (bottom, left or right) needs to be enabled.</string>
-    <string name="pie_disable_ime_triggers_title">Reduce trigger size on keyboard</string>
-    <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size if keyboard is active</string>
+    <!-- Tipsy OTA -->
+    <string name="slimota_title">TipsyOTA</string>
+
+    <!-- Font size sample text. This needs to be a very short string, as it is shown in
+         multiple font sizes in a limited amount of space. -->
+    <string name="font_size_sample">Sample</string>
+
+    <!-- Battery Bar -->
+    <string name="battery_bar_summary">Battery Bar options for status and nav bar</string>
+    <string name="battery_icon">Battery icon style</string>
+    <string name="battery_not_title">Battery icon in notifications</string>
+    <string name="battery_not_summary">Battery icon will show up where the clear all button shows up</string>
+    <string name="battery_bar_location">Battery bar location</string>
+    <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar">Battery bar options</string>
+    <string name="battery_bar_style_title">Battery bar style</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
+
+    <!-- Changelog -->
+    <string name="changelog_tipsy_title">Changelog</string>
+    <string name="changelog_tipsy_error">Unable to load changelog</string>
 
 </resources>
