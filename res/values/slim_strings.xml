@@ -904,4 +904,7 @@
     <string name="changelog_tipsy_title">Changelog</string>
     <string name="changelog_tipsy_error">Unable to load changelog</string>
 
+    <!-- Device specific settings -->
+    <string name="screen_off_gesture_settings_title">Screen off gestures</string>
+
 </resources>
