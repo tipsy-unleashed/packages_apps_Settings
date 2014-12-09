@@ -25,13 +25,24 @@
             android:key="unlock_set_or_change"
             android:title="@string/unlock_set_unlock_launch_picker_title"
             android:summary="@string/unlock_set_unlock_mode_none"
-            android:persistent="false"/>
+            android:persistent="false" />
+
+        <PreferenceScreen
+                 android:key="lockscreen_shortcuts"
+                 android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+                 android:summary="@string/lockscreen_shortcuts_summary"
+                 android:title="@string/lockscreen_shortcuts_title">
+             <extra android:name="actionMode" android:value="4" />
+             <extra android:name="maxAllowedActions" android:value="5" />
+             <extra android:name="disableLongpress" android:value="true" />
+             <extra android:name="useAppPickerOnly" android:value="true" />
+             <extra android:name="fragment" android:value="com.android.settings.slim.fragments.LockscreenShortcutFragment" />
+        </PreferenceScreen>
 
         <com.android.settings.SingleLineSummaryPreference
             android:key="owner_info_settings"
             android:title="@string/owner_info_settings_title"
-            android:summary="@string/owner_info_settings_summary"/>
-
+            android:summary="@string/owner_info_settings_summary" />
 
        <com.android.settings.slim.SystemSettingSwitchPreference
             android:key="double_tap_sleep_anywhere"
