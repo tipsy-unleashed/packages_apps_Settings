@@ -1221,4 +1221,8 @@
     <string name="volbtn_music_controls_title">Volume rocker music controls</string>
     <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
 
+    <!-- Show/Hide Search Bar -->
+    <string name="recents_show_searchbar">Disable Search Bar in stock Recents</string>
+    <string name="recents_show_searchbar_summary">Disable or enable the Google search bar in the stock recents panel</string>
+
 </resources>
