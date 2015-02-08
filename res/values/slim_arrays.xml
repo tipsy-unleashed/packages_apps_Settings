@@ -694,7 +694,6 @@
         <item>@string/shortcut_action_search</item>
         <item>@string/shortcut_action_none</item>
     </string-array>
-
     <string-array name="shortcut_action_values" translatable="false">
         <item>**back**</item>
         <item>**app**</item>
@@ -835,6 +834,28 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <string-array name="shortcut_action_power_menu_entries">
+        <item>@string/shortcut_action_airplane</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_power_off</item>
+        <item>@string/shortcut_action_reboot</item>
+        <item>@string/shortcut_action_screenshot</item>
+        <item>@string/shortcut_action_sound</item>
+        <item>@string/shortcut_action_users</item>
+        <item>@string/shortcut_action_lockdown</item>
+    </string-array>
+
+    <string-array name="shortcut_action_power_menu_values" translatable="false">
+        <item>**airplane**</item>
+        <item>**app**</item>
+        <item>**poweroff**</item>
+        <item>**reboot**</item>
+        <item>**screenshot**</item>
+        <item>**sound**</item>
+        <item>**users**</item>
+        <item>**lockdown**</item>
     </string-array>
 
     <!-- Network Traffic Display States -->

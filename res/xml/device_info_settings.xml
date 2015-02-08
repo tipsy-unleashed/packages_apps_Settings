@@ -127,7 +127,7 @@
         <PreferenceScreen 
          	android:key="translator"
          	android:title="@string/changelog_tipsy_title"
-         	android:fragment="com.android.settings.tipsy.Changelog" />
+         	android:fragment="com.android.settings.slim.Changelog" />
 
         <!-- Device FCC equipment id -->
         <Preference android:key="fcc_equipment_id"
