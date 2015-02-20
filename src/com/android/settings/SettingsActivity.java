@@ -92,6 +92,7 @@ import com.android.settings.notification.OtherSoundSettings;
 import com.android.settings.quicklaunch.QuickLaunchSettings;
 import com.android.settings.search.DynamicIndexableContentMonitor;
 import com.android.settings.search.Index;
+import com.android.settings.slim.NavbarSettings;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.inputmethod.KeyboardLayoutPickerFragment;
 import com.android.settings.inputmethod.SpellCheckersSettings;
@@ -313,7 +314,8 @@ public class SettingsActivity extends Activity
             ApnSettings.class.getName(),
             LiveDisplay.class.getName(),
             BlacklistSettings.class.getName(),
-            ExpandedDesktopPreferenceFragment.class.getName()
+            ExpandedDesktopPreferenceFragment.class.getName(),
+            NavbarSettings.class.getName()
         };
 
     private static final String[] LIKE_SHORTCUT_INTENT_ACTION_ARRAY = {

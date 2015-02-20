@@ -165,6 +165,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_expanded_desktop";
                 stringId = R.string.qs_expanded_desktop_tile;
                 break;
+            case QSConstants.TILE_NAVBAR:
+                resourceName = "ic_qs_navbar_on";
+                stringId = R.string.qs_navbar_tile;
+                break;
             case QSConstants.TILE_SLIM_FLOATS:
                 resourceName = "ic_qs_floating_on";
                 stringId = R.string.qs_tile_slim_floats;
