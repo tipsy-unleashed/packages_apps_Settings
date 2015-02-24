@@ -878,4 +878,7 @@
     <!-- Settings main menu entry -->
     <string name="gesture_settings_title">Device specific gestures</string>
 
+    <!-- Tipsy OTA -->
+    <string name="slimota_title">TipsyOTA</string>
+
 </resources>
