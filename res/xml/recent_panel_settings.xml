@@ -21,7 +21,7 @@
         <SwitchPreference
             android:key="use_slim_recents"
             android:title="@string/use_slim_recents_title"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
 	<com.android.settings.slim.SystemSettingSwitchPreference
             android:key="slim_action_floats"

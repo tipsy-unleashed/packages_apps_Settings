@@ -1691,4 +1691,7 @@
     <!-- WiFi auto-configure priorities -->
     <string name="wifi_auto_config_priorities">Automatic priority</string>
 
+    <!-- Tipsy OTA -->
+    <string name="slimota_title">TipsyOTA</string>
+
 </resources>
