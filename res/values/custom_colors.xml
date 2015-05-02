@@ -21,6 +21,7 @@
     <color name="background_color_white">@color/exposed_bg_dark</color>
     <color name="text_color_black">@color/exposed_primary_text_light</color>
     <color name="text_color_holo_blue_light">@android:color/holo_blue_light</color>
+    <color name="text_color_primary_text_material_light">#de000000</color>
     <color name="text_color_secondary_text_material_light">
         @color/exposed_secondary_text_light
     </color>
