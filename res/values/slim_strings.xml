@@ -1734,4 +1734,9 @@
     <string name="sizer_message_noselect">Nothing selected.</string>
     <string name="system_app_remover">System App Remover</string>
     <string name="systemappremover_summary">Remove system apps from the rom...MAY CAUSE INSTABILITY</string>
+
+    <!-- Mobile network settings in msim sim settings -->
+    <string name="sim_mobile_network_settings_category_title">Mobile network settings</string>
+    <string name="sim_mobile_network_settings_title">SIM %d settings</string>
+
 </resources>

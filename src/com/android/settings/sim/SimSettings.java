@@ -22,6 +22,7 @@ import com.android.settings.R;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.IntentFilter;
 import android.content.Intent;
 import android.content.Context;
@@ -72,6 +73,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private static final String SIM_ENABLER_CATEGORY = "sim_enablers";
     private static final String SIM_CARD_CATEGORY = "sim_cards";
     private static final String SIM_ACTIVITIES_CATEGORY = "sim_activities";
+    private static final String MOBILE_NETWORK_CATEGORY = "mobile_network";
     private static final String KEY_CELLULAR_DATA = "sim_cellular_data";
     private static final String KEY_CALLS = "sim_calls";
     private static final String KEY_SMS = "sim_sms";
@@ -202,6 +204,8 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         final PreferenceCategory simCards = (PreferenceCategory)findPreference(SIM_CARD_CATEGORY);
         final PreferenceCategory simEnablers =
                 (PreferenceCategory)findPreference(SIM_ENABLER_CATEGORY);
+        final PreferenceCategory mobileNetwork =
+                (PreferenceCategory) findPreference(MOBILE_NETWORK_CATEGORY);
 
         mAvailableSubInfos = new ArrayList<SubscriptionInfo>(mNumSlots);
         mSimEnablers = new ArrayList<MultiSimEnablerPreference>(mNumSlots);
@@ -220,6 +224,17 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                 mNumSims++;
                 mAvailableSubInfos.add(sir);
             }
+
+            Intent mobileNetworkIntent = new Intent();
+            mobileNetworkIntent.setComponent(new ComponentName(
+                        "com.android.phone", "com.android.phone.MobileNetworkSettings"));
+            SubscriptionManager.putPhoneIdAndSubIdExtra(mobileNetworkIntent,
+                    i, sir != null ? sir.getSubscriptionId() : -1);
+            Preference mobileNetworkPref = new Preference(getActivity());
+            mobileNetworkPref.setTitle(
+                    getString(R.string.sim_mobile_network_settings_title, (i + 1)));
+            mobileNetworkPref.setIntent(mobileNetworkIntent);
+            mobileNetwork.addPreference(mobileNetworkPref);
         }
     }
 
@@ -456,11 +471,13 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             final Preference preference) {
         if (preference instanceof SimPreference) {
             ((SimPreference) preference).createEditDialog((SimPreference) preference);
+            return true;
         } else if (preference == mPrimarySubSelect) {
             startActivity(mPrimarySubSelect.getIntent());
-        }
 
-        return true;
+            return true;
+        }
+        return false;
     }
 
     public void createDropDown(DropDownPreference preference) {
