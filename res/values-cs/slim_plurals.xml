@@ -22,4 +22,5 @@
     <item quantity="few">%d dlaždice nakonfigurovány</item>
     <item quantity="other">%d dlaždic nakonfigurováno</item>
   </plurals>
+	
 </resources>

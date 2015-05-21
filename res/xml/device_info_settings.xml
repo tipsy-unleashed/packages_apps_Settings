@@ -111,7 +111,7 @@
                 android:title="@string/firmware_version"
                 android:summary="@string/device_info_default"/>
 
-        <!-- Slim firmware version -->
+        <!-- Tipsy firmware version -->
         <Preference android:key="tipsy_version"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/tipsy_version_title"
@@ -122,6 +122,12 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/build_date"
                 android:summary="@string/build_date_default" />
+
+        <!-- Changelog -->
+        <PreferenceScreen 
+         	android:key="translator"
+         	android:title="@string/changelog_tipsy_title"
+         	android:fragment="com.android.settings.tipsy.Changelog" />
 
         <!-- Device FCC equipment id -->
         <Preference android:key="fcc_equipment_id"

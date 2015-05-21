@@ -928,4 +928,9 @@
     <string name="appops_manager_title">Appops</string>
     <string name="appops_manager_summary">Individually manage all apps permissions</string>
 
+    <!-- Changelog -->
+    <string name="changelog_tipsy_title">Changelog</string>
+    <string name="changelog_tipsy_error">Unable to load changelog</string>
+
+
 </resources>
