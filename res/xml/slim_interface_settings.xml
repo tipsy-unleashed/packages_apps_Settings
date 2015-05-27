@@ -54,4 +54,10 @@
         android:fragment="com.android.settings.slim.StatusBar"
         android:title="@string/status_bar_title" />
 
+    <!-- Screen and animations -->
+    <PreferenceScreen
+        android:key="screen_and_animations"
+        android:fragment="com.android.settings.tipsy.ScreenAndAnimations"
+        android:title="@string/screen_and_animations_title" />
+   
 </PreferenceScreen>
