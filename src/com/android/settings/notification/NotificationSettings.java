@@ -96,6 +96,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         @Override
         public void onStartingSample() {
             mVolumeCallback.stopSample();
+            mHandler.removeMessages(H.STOP_SAMPLE);
+            mHandler.sendEmptyMessageDelayed(H.STOP_SAMPLE, SAMPLE_CUTOFF);
         }
     };
 
@@ -259,6 +261,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         for (VolumeSeekBarPreference volumePref : mVolumePrefs) {
             volumePref.onActivityResume();
         }
+        if (mIncreasingRingVolume != null) {
+            mIncreasingRingVolume.onActivityResume();
+        }
 
         boolean headsUpEnabled = Settings.System.getInt(
                 getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION, 1) != 0;
@@ -270,6 +275,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     public void onPause() {
         super.onPause();
         mVolumeCallback.stopSample();
+        if (mIncreasingRingVolume != null) {
+            mIncreasingRingVolume.stopSample();
+        }
         mSettingsObserver.register(false);
         mReceiver.register(false);
     }
@@ -764,6 +772,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                     break;
                 case STOP_SAMPLE:
                     mVolumeCallback.stopSample();
+                    if (mIncreasingRingVolume != null) {
+                        mIncreasingRingVolume.stopSample();
+                    }
                     break;
                 case UPDATE_EFFECTS_SUPPRESSOR:
                     updateEffectsSuppressor();
