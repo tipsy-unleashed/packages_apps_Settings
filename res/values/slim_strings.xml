@@ -50,9 +50,9 @@
     <string name="privacy_guard_notification_title">Notification</string>
     <string name="privacy_guard_notifiation_summary">Show notification if privacy guard is active.</string>
 
-    <!-- About phone screen, Slim version -->
-    <string name="slim_version_title">Slim version</string>
-    <string name="slim_version_default">Unknown</string>
+    <!-- About phone screen, Tipsy version -->
+    <string name="tipsy_version_title">Tipsy version</string>
+    <string name="tipsy_version_default">Unknown</string>
     <!-- About phone screen, build date of ROM -->
     <string name="build_date">Build date</string>
     <string name="build_date_default">Unknown</string>
@@ -218,7 +218,7 @@
 
     <!-- Slim settings screens -->
     <string name="header_category_personalization">Personalization</string>
-    <string name="interface_settings_title">Interface</string>
+    <string name="interface_settings_title">Tavern</string>
     <string name="navigation_settings_title">Navigation</string>
 
     <!-- Color Picker -->
