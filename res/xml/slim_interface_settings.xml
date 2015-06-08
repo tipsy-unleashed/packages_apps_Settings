@@ -25,6 +25,11 @@
         android:layout="@layout/preference_powermenu"
         android:title="@string/powermenu_category" />
 
+        <PreferenceScreen
+        android:key="battery_bar"
+        android:fragment="com.android.settings.slim.BatteryBar"
+        android:title="@string/battery_bar" />
+
 
     <PreferenceScreen
         android:key="status_bar"
