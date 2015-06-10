@@ -102,6 +102,28 @@
                     android:targetClass="com.slim.device.settings.ScreenOffGestureSettings" />
         </dashboard-tile>
 
+        <!-- Kernel Auditor App -->
+        <dashboard-tile
+                android:id="@+id/kernel_auditor"
+                android:icon="@drawable/ic_tipsy_performance"
+                android:title="@string/performance_settings">
+                <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.grarak.kerneladiutor"
+                    android:targetClass="com.grarak.kerneladiutor.MainActivity" />
+        </dashboard-tile>
+
+      <!-- BitSyko Layers App -->
+      <dashboard-tile
+                android:id="@+id/bitsyko_layers"
+                android:icon="@drawable/ic_bitsyko_layers"
+		android:title="@string/bitsyko_layers">     
+		<intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.lovejoy777.rroandlayersmanager"
+                    android:targetClass="com.lovejoy777.rroandlayersmanager.menu" />
+      </dashboard-tile>
+
     </dashboard-category>
 
     <!-- DEVICE -->
@@ -257,6 +279,17 @@
                 android:fragment="com.android.settings.print.PrintSettingsFragment"
                 android:icon="@drawable/ic_settings_print"
                 />
+
+        <!-- SuperSU -->
+        <dashboard-tile
+            android:id="@+id/supersu_settings"
+            android:icon="@drawable/ic_settings_supersu"
+            android:title="@string/supersu_title">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="eu.chainfire.supersu"
+                android:targetClass="eu.chainfire.supersu.MainActivity" />
+        </dashboard-tile>
 
         <!-- Development -->
         <dashboard-tile
