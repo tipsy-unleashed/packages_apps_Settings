@@ -20,12 +20,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.hardware.CmHardwareManager;
 import android.os.Bundle;
 import android.preference.SwitchPreference;
 import android.preference.Preference;
@@ -44,6 +46,8 @@ import com.android.internal.util.slim.DeviceUtils;
 import com.android.internal.util.slim.DeviceUtils.FilteredDeviceFeaturesArray;
 import com.android.internal.util.slim.HwKeyHelper;
 
+import com.android.settings.slim.ButtonBacklightBrightness;
+
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.slim.util.ShortcutPickerHelper;
@@ -58,6 +62,8 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = "HardwareKeys";
 
+    private static final String KEY_ENABLE_HW_KEYS = "enable_hw_keys";
+
     private static final String CATEGORY_KEYS = "button_keys";
     private static final String CATEGORY_BACK = "button_keys_back";
     private static final String CATEGORY_CAMERA = "button_keys_camera";
@@ -66,6 +72,7 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_ASSIST = "button_keys_assist";
     private static final String CATEGORY_APPSWITCH = "button_keys_appSwitch";
 
+    private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
     private static final String KEYS_CATEGORY_BINDINGS = "keys_bindings";
     private static final String KEYS_ENABLE_CUSTOM = "enable_hardware_rebind";
     private static final String KEYS_BACK_PRESS = "keys_back_press";
@@ -101,6 +108,8 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
     private static final int KEY_MASK_ASSIST     = 0x08;
     private static final int KEY_MASK_APP_SWITCH = 0x10;
     private static final int KEY_MASK_CAMERA     = 0x20;
+
+    private SwitchPreference mEnableHwKeys;
 
     private SwitchPreference mEnableCustomBindings;
     private Preference mBackPressAction;
@@ -165,6 +174,9 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
         int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
 
+        mEnableHwKeys = (SwitchPreference) findPreference(KEY_ENABLE_HW_KEYS);
+        mEnableHwKeys.setOnPreferenceClickListener(this);
+
         boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
         boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
         boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
@@ -186,6 +198,12 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefs.findPreference(CATEGORY_ASSIST);
         PreferenceCategory keysAppSwitchCategory =
                 (PreferenceCategory) prefs.findPreference(CATEGORY_APPSWITCH);
+
+        final ButtonBacklightBrightness backlight = (ButtonBacklightBrightness)
+                findPreference(KEY_BUTTON_BACKLIGHT);
+        if (!backlight.isButtonSupported()) {
+            getPreferenceScreen().removePreference(backlight);
+        }
 
         mEnableCustomBindings = (SwitchPreference) prefs.findPreference(
                 KEYS_ENABLE_CUSTOM);
@@ -393,10 +411,24 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
         return null;
     }
 
+    private static void writeDisableHwKeys(Context context, boolean enabled) {
+        SharedPreferences preferences =
+                context.getSharedPreferences("hw_key_settings", Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean(KEY_ENABLE_HW_KEYS, enabled).commit();
+
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        cmHardwareManager.set(CmHardwareManager.FEATURE_KEY_DISABLE, enabled);
+    }
+
     @Override
     public boolean onPreferenceClick(Preference preference) {
         String settingsKey = null;
         int dialogTitle = 0;
+        if (preference == mEnableHwKeys) {
+            writeDisableHwKeys(getActivity(), !mEnableHwKeys.isChecked());
+            return true;
+        }
         if (preference == mBackPressAction) {
             settingsKey = Settings.System.KEY_BACK_ACTION;
             dialogTitle = R.string.keys_back_press_title;
@@ -542,6 +574,18 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
         menu.add(0, MENU_RESET, 0, R.string.shortcut_action_reset)
                 .setIcon(R.drawable.ic_settings_reset) // Use the reset icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    public static void restore(Context context) {
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        if (cmHardwareManager.isSupported(CmHardwareManager.FEATURE_KEY_DISABLE)) {
+            SharedPreferences preferences =
+                    context.getSharedPreferences("hw_key_settings", Activity.MODE_PRIVATE);
+
+            boolean enabled = preferences.getBoolean(KEY_ENABLE_HW_KEYS, false);
+            cmHardwareManager.set(CmHardwareManager.FEATURE_KEY_DISABLE, enabled);
+        }
     }
 
     private void showDialogInner(int id, String settingsKey, int dialogTitle) {
