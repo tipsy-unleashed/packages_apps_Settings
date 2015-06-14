@@ -218,7 +218,7 @@
 
     <!-- Slim settings screens -->
     <string name="header_category_personalization">Personalization</string>
-    <string name="interface_settings_title">Tavern</string>
+    <string name="interface_settings_title">The Tavern</string>
     <string name="navigation_settings_title">Navigation</string>
 
     <!-- Color Picker -->
