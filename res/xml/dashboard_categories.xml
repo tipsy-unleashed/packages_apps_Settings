@@ -102,10 +102,10 @@
             android:id="@+id/personalization_section"
             android:title="@string/header_category_personalization" >
 
-        <!-- Interface -->
+        <!-- The Tavern-->
         <dashboard-tile
                 android:id="@+id/interface_settings"
-                android:icon="@drawable/ic_settings_interface"
+                android:icon="@drawable/ic_settings_tavern"
                 android:fragment="com.android.settings.slim.InterfaceSettings"
                 android:title="@string/interface_settings_title"
                 />
