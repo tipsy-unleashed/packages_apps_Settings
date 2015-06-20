@@ -29,6 +29,12 @@
     <string name="choose_app">Choose application</string>
     <string name="reset_message">Reset all entries to default?</string>
     <string name="additional_options_title">Additional options</string>
+    <string name="reset_to_default">Reset values to default?</string>
+    <string name="reset_android">Android</string>
+    <string name="reset_terminus">Tipsy</string>
+    <string name="colors_title">Colors</string>
+    <string name="text_title">Text</string>
+    <string name="icons_title">Icons</string>
 
     <!-- Privacy Guard -->
     <string name="app_security_title">App security</string>
@@ -1131,5 +1137,22 @@
     <!-- Weather in status bar -->
     <string name="status_bar_show_weather_title">Show weather</string>
     <string name="status_bar_show_weather_summary">Show the weather above the Quick Settings panel</string>
+
+    <!-- Lock screen weather -->
+    <string name="lock_screen_weather_settings_title">Lockscreen weather</string>
+    <!-- Weather settings -->
+    <string name="weather_show_weather_title">Show weather</string>
+    <string name="weather_show_weather_summary">Enable to show weather informations</string>
+    <string name="weather_show_location_title">Show location</string>
+    <string name="weather_show_location_summary">Enable to show the location</string>
+    <string name="weather_show_timestamp_title">Show timestamp</string>
+    <string name="weather_show_timestamp_summary">Enable to show the timestamp</string>
+    <string name="weather_condition_icon_title">Condition icon</string>
+    <string name="weather_condition_icon_dlg_title">Coose an icon for displaying the weather condition</string>
+    <string name="weather_condition_icon_monochrome_title">Monochrome</string>
+    <string name="weather_condition_icon_colored_title">Colored</string>
+    <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_colorize_all_icons_title">Colorize all icons</string>
+    <string name="weather_colorize_all_icons_summary">Enable to colorize all icons, disable to colorize only the monochrome icons</string>
 
 </resources>
