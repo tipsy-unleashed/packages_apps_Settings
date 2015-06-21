@@ -849,9 +849,6 @@
     <string name="heads_up_time_out_8sec">8 seconds</string>
     <string name="heads_up_time_out_10sec">10 seconds</string>
     <string name="heads_up_time_out_never">Never</string>
-    <string name="heads_up_notifications">Heads up</string>
-    <string name="summary_heads_up_enabled">Pop-ups are enabled</string>
-    <string name="summary_heads_up_disabled">Pop-ups are disabled</string>
 
     <!-- Pie Control -->
     <string name="pie_control_title">SlimPIE</string>
