@@ -48,10 +48,10 @@ import com.android.internal.util.slim.DeviceUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.cyanogenmod.PackageListAdapter;
-import com.android.settings.cyanogenmod.PackageListAdapter.PackageItem;
+import com.android.settings.slim.PackageListAdapter;
+import com.android.settings.slim.PackageListAdapter.PackageItem;
 import com.android.settings.SettingsActivity;
-import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
+import com.android.settings.slim.BaseSystemSettingSwitchBar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
