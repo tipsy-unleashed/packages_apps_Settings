@@ -13,19 +13,15 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="backlight_timeout_time">
-    <item quantity="one"><xliff:g id="seconds">%d</xliff:g> sekunda</item>
-    <item quantity="few"><xliff:g id="seconds">%d</xliff:g> sekundy</item>
-    <item quantity="other"><xliff:g id="seconds">%d</xliff:g> sekund</item>
+    <item quantity="one"><xliff:g id="seconds">%d</xliff:g> segundo</item>
+    <item quantity="other"><xliff:g id="seconds">%d</xliff:g> segundos</item>
   </plurals>
   <plurals name="app_ops_count">
-    <item quantity="one">jednou</item>
-    <item quantity="few">%dkrát</item>
-    <item quantity="other">%dkrát</item>
+    <item quantity="one">una vez</item>
+    <item quantity="other">%d veces</item>
   </plurals>
   <plurals name="qs_tiles_summary">
-    <item quantity="one">1 dlaždice nakonfigurována</item>
-    <item quantity="few">%d dlaždice nakonfigurovány</item>
-    <item quantity="other">%d dlaždic nakonfigurováno</item>
+    <item quantity="one">1 interruptor configurado</item>
+    <item quantity="other">%d interruptores configurados</item>
   </plurals>
-	
 </resources>
