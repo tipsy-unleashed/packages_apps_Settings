@@ -1199,7 +1199,7 @@
 
     <!-- Performance settings -->
     <string name="title_tile_performance_profile">Performance profile</string>
-    <string name="performance_settings_title">Performance</string>
+    <string name="performance_settings_title">Performance for noobs</string>
 
     <!-- Performance Settings : Performance profile settings -->
     <string name="perf_profile_title">Profile</string>
