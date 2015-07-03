@@ -1126,8 +1126,6 @@
     <string name="remove_blacklist_entry">Do you want to remove this blacklist entry?</string>
     <string name="select_contact">Select contact</string>
 
-    <!-- SIM -->
-    <string name="sim_no_number_set">No number assigned</string>
 
     <!-- Font size sample text. This needs to be a very short string, as it is shown in
          multiple font sizes in a limited amount of space. -->
@@ -1224,5 +1222,4 @@
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Disable Search Bar in stock Recents</string>
     <string name="recents_show_searchbar_summary">Disable or enable the Google search bar in the stock recents panel</string>
-
 </resources>
