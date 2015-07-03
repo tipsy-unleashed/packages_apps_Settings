@@ -49,7 +49,6 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.util.AttributeSet;
@@ -1172,14 +1171,6 @@ public class SettingsActivity extends Activity
                 } else if (id == R.id.bluetooth_settings) {
                     // Remove Bluetooth Settings if Bluetooth service is not available.
                     if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
-                        removeTile = true;
-                    }
-                } else if (id == R.id.mobile_networks) {
-                    if (TelephonyManager.getDefault().getPhoneCount() > 1) {
-                        removeTile = true;
-                    }
-                } else if (id == R.id.msim_mobile_networks) {
-                    if (TelephonyManager.getDefault().getPhoneCount() <= 1) {
                         removeTile = true;
                     }
                 } else if (id == R.id.data_usage_settings) {
