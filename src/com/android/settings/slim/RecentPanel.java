@@ -57,6 +57,8 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     private static final String USE_SLIM_RECENTS = "use_slim_recents";
     private static final String ONLY_SHOW_RUNNING_TASKS = "only_show_running_tasks";
 
+    private static final String RECENTS_SHOW_SEARCH_BAR = "recents_show_search_bar";
+    private static final String RECENTS_SHOW_CLEAR_ALL = "show_clear_all_recents";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
     private static final String RECENTS_MAX_APPS = "max_apps";
@@ -80,6 +82,8 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     private SwitchPreference mUseSlimRecents;
     private SwitchPreference mShowRunningTasks;
 
+    private SwitchPreference mShowClearAll;
+    private SwitchPreference mShowSearchBar;
     private ListPreference mRecentsClearAllLocation;
 
     private SlimSeekBarPreference mMaxApps;
@@ -106,7 +110,7 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
         if (preference == mUseSlimRecents) {
             Settings.System.putInt(getContentResolver(), Settings.System.USE_SLIM_RECENTS,
                     ((Boolean) newValue) ? 1 : 0);
-            updateRecentsPreferences((Boolean) newValue);
+            updateStockRecents(!((Boolean) newValue));
             return true;
         } else if (preference == mShowRunningTasks) {
             Settings.System.putInt(getContentResolver(), Settings.System.RECENT_SHOW_RUNNING_TASKS,
@@ -264,6 +268,19 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
                 Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0);
         mRecentsClearAllLocation.setValue(String.valueOf(location));
         updateRecentsLocation(location);
+
+       final boolean useSlimRecent = Settings.System.getInt(getContentResolver(),
+                Settings.System.USE_SLIM_RECENTS, 0) == 1;
+       updateStockRecents(!useSlimRecent);
+    }
+
+    private void updateStockRecents(boolean enable) {
+        if (mShowSearchBar != null) {
+            mShowSearchBar.setEnabled(enable);
+        }
+        if (mShowClearAll != null) {
+            mShowClearAll.setEnabled(enable);
+        }
     }
 
     private void initializeAllPreferences() {
@@ -275,6 +292,9 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
 
         mShowRunningTasks = (SwitchPreference) findPreference(ONLY_SHOW_RUNNING_TASKS);
         mShowRunningTasks.setOnPreferenceChangeListener(this);
+
+        mShowSearchBar = (SwitchPreference) findPreference(RECENTS_SHOW_SEARCH_BAR);
+        mShowClearAll = (SwitchPreference) findPreference(RECENTS_SHOW_CLEAR_ALL);
 
         mRecentsClearAllLocation = (ListPreference) findPreference(RECENTS_CLEAR_ALL_LOCATION);
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
