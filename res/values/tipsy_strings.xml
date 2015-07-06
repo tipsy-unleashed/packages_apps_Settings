@@ -118,5 +118,11 @@
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="status_bar_carrier_color">Carrier label color</string>
 
+    <!-- Floating Windows -->
+    <string name="slim_action_floats">Slim Actions and Pie</string>
+    <string name="slim_action_floats_summary">Launch Slim and Pie Actions in Floating Window Mode</string>
+
+    <string name="qs_tile_slim_floats">Slim Floats</string>
+
 </resources>
 

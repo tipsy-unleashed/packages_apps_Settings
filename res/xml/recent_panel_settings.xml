@@ -23,6 +23,13 @@
             android:title="@string/use_slim_recents_title"
             android:defaultValue="true" />
 
+	<com.android.settings.slim.SystemSettingSwitchPreference
+            android:key="slim_action_floats"
+            android:title="@string/slim_action_floats"
+            android:summary="@string/slim_action_floats_summary"
+            android:dependency="use_slim_recents"
+            android:defaultValue="false" />
+
         <com.android.settings.slim.SystemSettingSwitchPreference
             android:key="recents_show_hide_search_bar"
             android:title="@string/recents_show_searchbar"
