@@ -1915,7 +1915,7 @@
         </activity>
 
         <!-- Select Subscription (SUB1 or SUB2) Screen -->
-        <activity android:name=".SelectSubscription"
+        <activity android:name="msim.SelectSubscription"
                 android:label="@string/subs_settings"
                 android:process="com.android.phone"
                 android:clearTaskOnLaunch="true">
