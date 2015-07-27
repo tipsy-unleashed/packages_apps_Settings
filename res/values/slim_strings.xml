@@ -494,6 +494,7 @@
     <string name="qs_tile_lockscreen">Lockscreen</string>
     <string name="qs_tile_lte">LTE</string>
     <string name="qs_tile_nfc">NFC</string>
+    <string name="qs_tile_powermenu">Power Menu</string>
     <string name="qs_tile_profiles">System profiles</string>
     <string name="qs_tile_performance">Performance</string>
     <string name="qs_tile_reboot">Reboot</string>
