@@ -111,7 +111,7 @@
     <!-- Dashboard padding in its container -->
     <dimen name="dashboard_padding_start">7.0dp</dimen>
     <dimen name="dashboard_padding_end">7.0dp</dimen>
-    <dimen name="dashboard_padding_top">50.0dp</dimen>
+    <dimen name="dashboard_padding_top">0dp</dimen>
     <dimen name="dashboard_padding_bottom">15.0dp</dimen>
 
     <!-- Dashboard category padding start / end -->
