@@ -111,7 +111,7 @@
     <!-- Dashboard padding in its container -->
     <dimen name="dashboard_padding_start">7.0dp</dimen>
     <dimen name="dashboard_padding_end">7.0dp</dimen>
-    <dimen name="dashboard_padding_top">0dp</dimen>
+    <dimen name="dashboard_padding_top">5dp</dimen>
     <dimen name="dashboard_padding_bottom">15.0dp</dimen>
 
     <!-- Dashboard category padding start / end -->
@@ -119,7 +119,7 @@
     <dimen name="dashboard_category_padding_end">6.0dp</dimen>
 
     <!-- Dashboard category panel elevation -->
-    <dimen name="dashboard_category_elevation">30.0dp</dimen>
+    <dimen name="dashboard_category_elevation">2.0dp</dimen>
 
     <!-- Dashboard category title layout height -->
     <dimen name="dashboard_category_title_height">38.0dp</dimen>
