@@ -124,5 +124,9 @@
 
     <string name="qs_tile_slim_floats">Slim Floats</string>
 
+    <!-- Navbar double tap -->
+    <string name="double_tap_to_sleep_navbar_summary">Double-tap on the navigation bar to turn off the display</string> 
+    <string name="double_tap_to_sleep_nav_title">Double-tap to sleep</string> 
+
 </resources>
 
