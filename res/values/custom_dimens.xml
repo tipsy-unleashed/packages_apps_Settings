@@ -21,8 +21,8 @@
 
     <!-- Individual corner control -->
     <dimen name="dashboard_radius_bottom_left">0dip</dimen>
-    <dimen name="dashboard_radius_bottom_right">0dip</dimen>
-    <dimen name="dashboard_radius_top_left">15dip</dimen>
-    <dimen name="dashboard_radius_top_right">15dip</dimen>
+    <dimen name="dashboard_radius_bottom_right">20dip</dimen>
+    <dimen name="dashboard_radius_top_left">0dip</dimen>
+    <dimen name="dashboard_radius_top_right">20dip</dimen>
 
 </resources>

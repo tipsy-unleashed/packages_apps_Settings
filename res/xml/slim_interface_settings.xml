@@ -40,6 +40,16 @@
         android:title="@string/power_menu_expanded_desktop"
         android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
 
+    <!-- DeviceHandler device specific screen off gesture settings -->
+    <Preference
+        android:id="@+id/screen_off_gesture_settings"
+        android:title="@string/screen_off_gesture_settings_title">
+        <intent
+           android:action="com.slim.action.LAUNCH_SCREEN_OFF_GESTURE_SETTINGS"
+           android:targetPackage="com.slim.device"
+           android:targetClass="com.slim.device.settings.ScreenOffGestureSettings" />
+    </Preference>
+
     <PreferenceScreen
         android:key="lock_screen_weather_settings"
         android:title="@string/lock_screen_weather_settings_title"

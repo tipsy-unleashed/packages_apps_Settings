@@ -118,17 +118,6 @@
                 android:title="@string/navigation_settings_title"
                 />
 
-        <!-- DeviceHandler device specific screen off gesture settings -->
-        <dashboard-tile
-                android:id="@+id/screen_off_gesture_settings"
-                android:icon="@drawable/ic_settings_tipsygestures"
-                android:title="@string/screen_off_gesture_settings_title">
-                <intent
-                    android:action="com.slim.action.LAUNCH_SCREEN_OFF_GESTURE_SETTINGS"
-                    android:targetPackage="com.slim.device"
-                    android:targetClass="com.slim.device.settings.ScreenOffGestureSettings" />
-        </dashboard-tile>
-
         <!-- Kernel Auditor App -->
         <dashboard-tile
                 android:id="@+id/kernel_auditor"
