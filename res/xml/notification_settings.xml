@@ -47,17 +47,17 @@
                 android:key="increasing_ring"
                 android:title="@string/increasing_ring_volume_option_title" />
 
-        <!-- Increasing ring volume -->
-        <com.android.settings.notification.IncreasingRingVolumePreference
-                android:key="increasing_ring_volume"
-                android:icon="@drawable/ring_notif_increasing"
-                android:dependency="increasing_ring" />
-
         <!-- Notification volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="notification_volume"
                 android:icon="@*android:drawable/ic_audio_ring_notif"
                 android:title="@string/notification_volume_option_title" />
+
+        <!-- Increasing ring volume -->
+        <com.android.settings.notification.IncreasingRingVolumePreference
+                android:key="increasing_ring_volume"
+                android:icon="@drawable/ring_notif_increasing"
+                android:dependency="increasing_ring" />
 
         <!-- Link Volume Notification -->
         <SwitchPreference
@@ -65,7 +65,6 @@
                 android:title="@string/link_volume_option_title"
                 android:persistent="false"
                 android:defaultValue="true" />
-
 
         <!-- Also vibrate for calls -->
         <SwitchPreference
