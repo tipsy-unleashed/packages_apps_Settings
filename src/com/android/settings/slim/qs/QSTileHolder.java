@@ -129,6 +129,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_visualizer_static";
                 stringId = R.string.qs_tile_visualizer;
                 break;
+            case QSConstants.TILE_VOLUME:
+                resourceName = "ic_qs_volume_panel";
+                stringId = R.string.qs_tile_volume_panel;
+                break;
             case QSConstants.TILE_SYNC:
                 resourceName = "ic_qs_sync_on";
                 stringId = R.string.qs_tile_sync;

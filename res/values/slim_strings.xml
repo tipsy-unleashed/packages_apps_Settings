@@ -506,6 +506,7 @@
     <string name="qs_tile_sync">Sync</string>
     <string name="qs_tile_usb_tether">USB tethering</string>
     <string name="qs_tile_visualizer">AudioFX</string>
+    <string name="qs_tile_volume_panel">Volume panel</string>
     <string name="qs_tile_wifi">Wi\u2011Fi</string>
     <string name="qs_tile_screenshot">Screenshot</string>
     <string name="qs_expanded_desktop_tile">Expanded desktop</string>
