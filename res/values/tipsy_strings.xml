@@ -133,5 +133,8 @@
     <string name="keep_screen_on_debugging">While USB debugging</string>
     <string name="keep_screen_on_charging">While charging</string>
 
+    <!-- Lock screen rotation -->
+    <string name="display_lockscreen_rotation_title">Lock screen</string>
+
 </resources>
 
