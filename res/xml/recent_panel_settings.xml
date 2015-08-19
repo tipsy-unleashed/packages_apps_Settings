@@ -41,6 +41,13 @@
             android:title="@string/show_running_tasks_title"
             android:defaultValue="false" />
 
+        <!-- Shake to Clear Recents -->
+        <com.android.settings.slim.SystemSettingSwitchPreference
+            android:key="shake_clean_recent"
+            android:title="@string/shake_clear_recents"
+            android:summary="@string/shake_clear_recents_summary"
+            android:defaultValue="false" />
+
         <SlimSeekBarPreference
             android:key="max_apps"
             android:title="@string/recents_max_apps_title" />
