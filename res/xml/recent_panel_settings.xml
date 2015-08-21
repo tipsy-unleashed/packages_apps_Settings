@@ -37,9 +37,10 @@
             android:defaultValue="true" />
 
         <SwitchPreference
+	    android:dependency="use_slim_recents"
             android:key="only_show_running_tasks"
             android:title="@string/show_running_tasks_title"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <!-- Shake to Clear Recents -->
         <com.android.settings.slim.SystemSettingSwitchPreference
