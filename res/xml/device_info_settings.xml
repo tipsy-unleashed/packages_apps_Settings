@@ -22,14 +22,14 @@
                           android:layout="@layout/tipsy_logo_row" />
 
         <!-- Tipsy OTA -->
-        <Preference
-               android:id="@+id/slimota"
+        <PreferenceScreen
+               android:key="slimota"
                android:title="@string/slimota_title">
                <intent
                        android:action="android.intent.action.MAIN"
                        android:targetPackage="com.fusionjack.slimota"
                        android:targetClass="com.fusionjack.slimota.MainActivity" />
-        </Preference>
+        </PreferenceScreen>
 
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
