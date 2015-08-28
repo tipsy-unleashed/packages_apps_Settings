@@ -153,5 +153,8 @@
     <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
     <string name="yes">YES</string>
 
+    <!-- Toast Icons -->
+    <string name="toast_icon_title">Toast icon</string>
+
 </resources>
 
