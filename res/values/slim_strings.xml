@@ -1304,6 +1304,9 @@
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Disable Search Bar in stock Recents</string>
     <string name="recents_show_searchbar_summary">Disable or enable the Google search bar in the stock recents panel</string>
+    <!-- MSIM Ringtone title -->
+    <string name="sim_ringtone_title">SIM %d ringtone</string>
+
 
     <!-- Lockscreen wallpaper -->
     <string name="lockscreen_wallpaper_title">Wallpaper</string>
