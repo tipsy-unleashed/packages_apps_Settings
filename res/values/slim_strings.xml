@@ -1705,6 +1705,10 @@
     <string name="slimota_title">TipsyOTA</string>
 
 
+    <!-- Battery saver -->
+    <string name="battery_saver_title">Warning color</string>
+    <string name="battery_saver_style_reset_message">Reset battery saver warning color?</string>  
+
     <!-- SlimSizer  -->
     <string name="listsystem">list</string>
     <string name="sizer_title">System App remover</string>
