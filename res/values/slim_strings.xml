@@ -1734,11 +1734,4 @@
     <string name="sizer_message_noselect">Nothing selected.</string>
     <string name="system_app_remover">System App Remover</string>
     <string name="systemappremover_summary">Remove system apps from the rom...MAY CAUSE INSTABILITY</string>
-
-    <!-- Status bar temperature -->
-    <string name="status_bar_temperature_title">Status bar weather icon</string>
-    <string name="status_bar_temperature_summary">Show weather in the status bar</string>
-    <string name="status_bar_temperature_hidden">Hidden</string>
-    <string name="status_bar_temperature_show_scale">Scale showing</string>
-    <string name="status_bar_temperature_hide_scale">Scale hidden</string>
 </resources>

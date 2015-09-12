@@ -161,13 +161,6 @@
     <string name="status_bar_greeting_summary">Display a custom greeting in the status bar after unlocking the device</string>
     <string name="status_bar_greeting_dialog">Set your greeting</string>
 
-    <!-- Status bar temperature -->
-    <string name="status_bar_temperature_title">Status bar weather icon</string>
-    <string name="status_bar_temperature_summary">Show weather in the status bar</string>
-    <string name="status_bar_temperature_hidden">Hidden</string>
-    <string name="status_bar_temperature_show_scale">Scale showing</string>
-    <string name="status_bar_temperature_hide_scale">Scale hidden</string>
-
     <!-- Custom Header Image -->
     <string name="status_bar_custom_header_title">Custom header image</string>
     <string name="status_bar_custom_header_summary">Enable notification panel header image</string>
