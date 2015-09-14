@@ -122,7 +122,11 @@
                 android:summary="@string/device_info_default"/>
 
         <!-- Tipsy firmware version -->
-        <Preference android:key="tipsy_version"
+        <Preference android:key="tipsy_version"/>
+
+
+        <!-- Slim firmware version -->
+        <Preference android:key="slim_version"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/tipsy_version_title"
                 android:summary="@string/tipsy_version_default"/>
@@ -168,5 +172,11 @@
                 style="?android:preferenceInformationStyle"
                 android:title="@string/selinux_status"
                 android:summary="@string/selinux_status_enforcing"/>
+
+        <!-- Security patch level -->
+        <Preference android:key="security_patch"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/security_patch"
+                android:summary="@string/device_info_default"/>
 
 </PreferenceScreen>

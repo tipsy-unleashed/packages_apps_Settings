@@ -24,11 +24,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
-import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.RemoteException;
 import android.os.SELinux;
 import android.os.SystemClock;
 import android.os.SystemProperties;
@@ -40,9 +37,11 @@ import android.preference.PreferenceScreen;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.telephony.TelephonyManager;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
@@ -50,10 +49,13 @@ import com.android.settings.search.Indexable;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
-import java.io.InputStreamReader;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -62,16 +64,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String LOG_TAG = "DeviceInfoSettings";
     private static final String FILENAME_PROC_VERSION = "/proc/version";
     private static final String FILENAME_MSV = "/sys/board_properties/soc/msv";
-    private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
-    private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
 
-    private static final String KEY_CONTAINER = "container";
     private static final String KEY_REGULATORY_INFO = "regulatory_info";
-    private static final String KEY_TERMS = "terms";
-    private static final String KEY_LICENSE = "license";
-    private static final String KEY_COPYRIGHT = "copyright";
-    private static final String KEY_WEBVIEW_LICENSE = "webview_license";
-    private static final String PROPERTY_URL_SAFETYLEGAL = "ro.url.safetylegal";
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
@@ -79,17 +73,31 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_SELINUX_STATUS = "selinux_status";
     private static final String KEY_BASEBAND_VERSION = "baseband_version";
     private static final String KEY_FIRMWARE_VERSION = "firmware_version";
+    private static final String KEY_SECURITY_PATCH = "security_patch";
+    private static final String KEY_UPDATE_SETTING = "additional_system_update_settings";
+    private static final String KEY_SECURITY_PATCH = "security_patch";
     private static final String KEY_TIPSY_VERSION = "tipsy_version";
     private static final String KEY_TIPSY_BUILD_DATE = "build_date";
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
-    private static final String KEY_SAFETY_LEGAL = "safetylegal";
-    private static final String KEY_DEVICE_CPU = "device_cpu";
-    private static final String KEY_DEVICE_MEMORY = "device_memory";
+
+    static final int TAPS_TO_BE_A_DEVELOPER = 7;
     private static final String KEY_SLIM_OTA = "slimota";
 
     long[] mHits = new long[3];
+    int mDevHitCountdown;
+    Toast mDevHitToast;
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DEVICEINFO;
+    }
+
+    @Override
+    protected int getHelpResource() {
+        return R.string.help_uri_about;
+    }
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -99,8 +107,30 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         setStringSummary(KEY_FIRMWARE_VERSION, Build.VERSION.RELEASE);
         findPreference(KEY_FIRMWARE_VERSION).setEnabled(true);
+	 String patch = Build.VERSION.SECURITY_PATCH;
+        if (!"".equals(patch)) {
+            setStringSummary(KEY_SECURITY_PATCH, patch);
+        } else {
+            getPreferenceScreen().removePreference(findPreference(KEY_SECURITY_PATCH));
+
+        }
         setValueSummary(KEY_TIPSY_VERSION, "ro.tipsy.version");
         setValueSummary(KEY_TIPSY_BUILD_DATE, "ro.build.date");
+        String patch = Build.VERSION.SECURITY_PATCH;
+        if (!"".equals(patch)) {
+            try {
+                SimpleDateFormat template = new SimpleDateFormat("yyyy-MM-dd");
+                Date patchDate = template.parse(patch);
+                String format = DateFormat.getBestDateTimePattern(Locale.getDefault(), "dMMMMyyyy");
+                patch = DateFormat.format(format, patchDate).toString();
+            } catch (ParseException e) {
+                // broken parse; fall through and use the raw string
+            }
+            setStringSummary(KEY_SECURITY_PATCH, patch);
+        } else {
+            getPreferenceScreen().removePreference(findPreference(KEY_SECURITY_PATCH));
+
+        }
         setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
@@ -129,33 +159,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             getPreferenceScreen().removePreference(findPreference(KEY_SLIM_OTA));
         }
 
-        String cpuInfo = getCPUInfo();
-        String memInfo = getMemInfo();
-
-        if (cpuInfo != null) {
-            setStringSummary(KEY_DEVICE_CPU, cpuInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_CPU));
-        }
-
-        if (memInfo != null) {
-            setStringSummary(KEY_DEVICE_MEMORY, memInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
-        }
-
-        // Remove Safety information preference if PROPERTY_URL_SAFETYLEGAL is not set
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SAFETY_LEGAL,
-                PROPERTY_URL_SAFETYLEGAL);
-
         // Remove Equipment id preference if FCC ID is not set by RIL
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_EQUIPMENT_ID,
                 PROPERTY_EQUIPMENT_ID);
 
         // Remove Baseband version if wifi-only device
-        if ((Utils.isWifiOnly(getActivity())
-                || (TelephonyManager.getDefault().getPhoneCount() > 1))
-                && !Utils.showSimCardTile(getActivity())) {
+        if (Utils.isWifiOnly(getActivity())) {
             getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
         }
 
@@ -168,26 +177,24 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
          * Settings is a generic app and should not contain any device-specific
          * info.
          */
-        final Activity act = getActivity();
-        // These are contained in the "container" preference group
-        PreferenceGroup parentPreference = (PreferenceGroup) findPreference(KEY_CONTAINER);
-        Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference, KEY_TERMS,
-                Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
-        Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference, KEY_LICENSE,
-                Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
-        Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference, KEY_COPYRIGHT,
-                Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
-        Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference, KEY_WEBVIEW_LICENSE,
-                Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
-
-        // Remove regulatory information if none present.
+        // Remove regulatory information if none present or config_show_regulatory_info is disabled
         final Intent intent = new Intent(Settings.ACTION_SHOW_REGULATORY_INFO);
-        if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()) {
+        if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()
+                || !getResources().getBoolean(R.bool.config_show_regulatory_info)) {
             Preference pref = findPreference(KEY_REGULATORY_INFO);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mDevHitCountdown = getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
+                Context.MODE_PRIVATE).getBoolean(DevelopmentSettings.PREF_SHOW,
+                        android.os.Build.TYPE.equals("eng")) ? -1 : TAPS_TO_BE_A_DEVELOPER;
+        mDevHitToast = null;
     }
 
     @Override
@@ -197,6 +204,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
+                UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
+                if (um.hasUserRestriction(UserManager.DISALLOW_FUN)) {
+                    Log.d(LOG_TAG, "Sorry, no fun for you!");
+                    return false;
+                }
+
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setClassName("android",
                         com.android.internal.app.PlatLogoActivity.class.getName());
@@ -205,6 +218,48 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 } catch (Exception e) {
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
+            }
+        } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
+            // Don't enable developer options for secondary users.
+            if (UserHandle.myUserId() != UserHandle.USER_OWNER) return true;
+
+            final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
+            if (um.hasUserRestriction(UserManager.DISALLOW_DEBUGGING_FEATURES)) return true;
+
+            if (mDevHitCountdown > 0) {
+                mDevHitCountdown--;
+                if (mDevHitCountdown == 0) {
+                    getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
+                            Context.MODE_PRIVATE).edit().putBoolean(
+                                    DevelopmentSettings.PREF_SHOW, true).apply();
+                    if (mDevHitToast != null) {
+                        mDevHitToast.cancel();
+                    }
+                    mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_on,
+                            Toast.LENGTH_LONG);
+                    mDevHitToast.show();
+                    // This is good time to index the Developer Options
+                    Index.getInstance(
+                            getActivity().getApplicationContext()).updateFromClassNameResource(
+                                    DevelopmentSettings.class.getName(), true, true);
+
+                } else if (mDevHitCountdown > 0
+                        && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
+                    if (mDevHitToast != null) {
+                        mDevHitToast.cancel();
+                    }
+                    mDevHitToast = Toast.makeText(getActivity(), getResources().getQuantityString(
+                            R.plurals.show_dev_countdown, mDevHitCountdown, mDevHitCountdown),
+                            Toast.LENGTH_SHORT);
+                    mDevHitToast.show();
+                }
+            } else if (mDevHitCountdown < 0) {
+                if (mDevHitToast != null) {
+                    mDevHitToast.cancel();
+                }
+                mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
+                        Toast.LENGTH_LONG);
+                mDevHitToast.show();
             }
         } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
             sendFeedback();
@@ -412,31 +467,16 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 if (isPropertyMissing(PROPERTY_SELINUX_STATUS)) {
                     keys.add(KEY_SELINUX_STATUS);
                 }
-                if (isPropertyMissing(PROPERTY_URL_SAFETYLEGAL)) {
-                    keys.add(KEY_SAFETY_LEGAL);
-                }
                 if (isPropertyMissing(PROPERTY_EQUIPMENT_ID)) {
                     keys.add(KEY_EQUIPMENT_ID);
                 }
                 // Remove Baseband version if wifi-only device
-                if (Utils.isWifiOnly(context) && !Utils.showSimCardTile(context)) {
+                if (Utils.isWifiOnly(context)) {
                     keys.add((KEY_BASEBAND_VERSION));
                 }
                 // Dont show feedback option if there is no reporter.
                 if (TextUtils.isEmpty(getFeedbackReporterPackage(context))) {
                     keys.add(KEY_DEVICE_FEEDBACK);
-                }
-                if (!checkIntentAction(context, "android.settings.TERMS")) {
-                    keys.add(KEY_TERMS);
-                }
-                if (!checkIntentAction(context, "android.settings.LICENSE")) {
-                    keys.add(KEY_LICENSE);
-                }
-                if (!checkIntentAction(context, "android.settings.COPYRIGHT")) {
-                    keys.add(KEY_COPYRIGHT);
-                }
-                if (!checkIntentAction(context, "android.settings.WEBVIEW_LICENSE")) {
-                    keys.add(KEY_WEBVIEW_LICENSE);
                 }
                 return keys;
             }
@@ -444,48 +484,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             private boolean isPropertyMissing(String property) {
                 return SystemProperties.get(property).equals("");
             }
-
-            private boolean checkIntentAction(Context context, String action) {
-                final Intent intent = new Intent(action);
-
-                // Find the activity that is in the system image
-                final PackageManager pm = context.getPackageManager();
-                final List<ResolveInfo> list = pm.queryIntentActivities(intent, 0);
-                final int listSize = list.size();
-
-                for (int i = 0; i < listSize; i++) {
-                    ResolveInfo resolveInfo = list.get(i);
-                    if ((resolveInfo.activityInfo.applicationInfo.flags &
-                            ApplicationInfo.FLAG_SYSTEM) != 0) {
-                        return true;
-                    }
-                }
-
-                return false;
-            }
         };
-
-    private String getMemInfo() {
-        String result = null;
-
-        try {
-            /* /proc/meminfo entries follow this format:
-             * MemTotal:         362096 kB
-             * MemFree:           29144 kB
-             * Buffers:            5236 kB
-             * Cached:            81652 kB
-             */
-            String firstLine = readLine(FILENAME_PROC_MEMINFO);
-            if (firstLine != null) {
-                String parts[] = firstLine.split("\\s+");
-                if (parts.length == 3) {
-                    result = Long.parseLong(parts[1])/1024 + " MB";
-                }
-            }
-        } catch (IOException e) {}
-
-        return result;
-    }
 
     private boolean removePreferenceIfPackageNotInstalled(Preference preference) {
         String intentUri=((PreferenceScreen) preference).getIntent().toUri(1);
@@ -509,42 +508,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             }
         }
         return false;
-    }
-
-    private String getCPUInfo() {
-        String result = null;
-        String hardware = null;
-        String model = null;
-        final String PROC_HARDWARE_REGEX = "Hardware\\s*:\\s*(.*)$"; /* hardware string */
-
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(FILENAME_PROC_CPUINFO), 256);
-            String Line = reader.readLine();
-
-            while (Line != null && (hardware == null || model == null)) {
-                if (hardware == null && Line.startsWith("Hardware")) {
-                    Matcher m = Pattern.compile(PROC_HARDWARE_REGEX).matcher(Line);
-                    if (m.matches()) {
-                        hardware = m.group(1);
-                    }
-                } else if (model == null &&
-                        (Line.indexOf("model name") != -1 || Line.indexOf("Processor" ) != -1)) {
-                    model = Line.split(":")[1].trim();
-                }
-                Line = reader.readLine();
-            }
-            reader.close();
-        } catch (IOException e) {}
-
-        if (hardware != null || model != null){
-            result  = (hardware != null) ? hardware : "";
-            result += (hardware != null && model != null) ? "\n" : "";
-            result += (model != null) ? model : "";
-        } else {
-            result = "Unknown";
-        }
-
-        return result;
     }
 }
 
