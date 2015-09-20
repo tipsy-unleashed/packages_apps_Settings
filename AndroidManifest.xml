@@ -2274,11 +2274,8 @@
             </intent-filter>
         </provider>
 
-        <!-- Heads up notifications -->
-        <activity android:name=".headsup.HeadsUpSettings" />
 
 	<!-- System app remover -->
         <activity android:name="com.android.settings.slim.fragments.SystemappRemover" />
-
     </application>
 </manifest>
