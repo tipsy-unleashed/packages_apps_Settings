@@ -586,11 +586,11 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
                 final Intent intent = new Intent(Intent.ACTION_MAIN);
                 if (TelephonyManager.getDefault().getPhoneCount() > 1) {
                     intent.setClassName("com.android.phone",
-                            "com.android.phone.msim.SelectSubscription");
+                            "com.android.phone.SelectSubscription");
                     intent.putExtra(SelectSubscription.PACKAGE,
                              "com.android.phone");
                     intent.putExtra(SelectSubscription.TARGET_CLASS,
-                            "com.android.phone.MobileNetworkSettings");
+                            "com.android.phone.MSimMobileNetworkSubSettings");
                 } else {
                     intent.setComponent(new ComponentName("com.android.phone",
                             "com.android.phone.MobileNetworkSettings"));
