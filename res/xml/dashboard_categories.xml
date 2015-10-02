@@ -101,7 +101,7 @@
         <!-- Navigation -->
         <dashboard-tile
                 android:id="@+id/navigation_settings"
-                android:icon="@drawable/ic_settings_tipsynavigation"
+                android:icon="@drawable/ic_settings_navigation"
                 android:fragment="com.android.settings.slim.NavigationSettings"
                 android:title="@string/navigation_settings_title"
                 />
@@ -109,7 +109,7 @@
         <!-- Kernel Auditor App -->
         <dashboard-tile
                 android:id="@+id/kernel_auditor"
-                android:icon="@drawable/ic_tipsy_performance"
+                android:icon="@drawable/ic_settings_performance"
                 android:title="@string/performance_settings">
                 <intent
                     android:action="android.intent.action.MAIN"
