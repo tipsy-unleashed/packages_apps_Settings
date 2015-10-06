@@ -127,7 +127,6 @@
                     android:targetPackage="com.lovejoy777.rroandlayersmanager"
                     android:targetClass="com.lovejoy777.rroandlayersmanager.menu" />
       </dashboard-tile>
-
     </dashboard-category>
 
     <!-- DEVICE -->
