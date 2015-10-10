@@ -236,6 +236,10 @@
     <!--Time Contexual Header -->
     <string name="status_bar_custom_header_title">Time Contextual Header</string>
     <string name="status_bar_custom_header_summary">Enable notification panel header image</string>
+    <string name="equalizer_settings_title">Equalizer</string>
+
+    <string name="kernel_settings_title">Kernel</string>
+
 
     <!-- Statusbar weather -->
     <string name="weather_category">Weather settings</string>
