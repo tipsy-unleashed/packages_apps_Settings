@@ -2200,6 +2200,7 @@
     <string name="device_status_summary" product="tablet">Status of the battery, network, and other information</string>
     <!-- About phone screen, summary of the item to go into the phone status screen -->
     <string name="device_status_summary" product="default">Battery Status, battery level, etc.</string>
+    <string name="subs_settings">SUBS Status</string>
     <!-- MSIM SIM status -->
     <string name="sim_card_status_title">SIM %d status</string>
     <string name="sim_card_lock_settings_title">SIM %d lock settings</string>
