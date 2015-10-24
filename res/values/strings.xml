@@ -5115,6 +5115,16 @@
     <!-- UI debug setting: simulate secondary display devices using overlays [CHAR LIMIT=25] -->
     <string name="overlay_display_devices_title">Simulate secondary displays</string>
 
+    <!-- Power Menu -->
+    <string name="powermenu_category">Power Menu</string>
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Advanced reboot</string>
+    <string name="advanced_reboot_summary">Include options in the power menu for rebooting into recovery and bootloader</string>
+    <string name="advanced_reboot_dialog_title">Advanced reboot menu</string>
+    <string name="advanced_reboot_disabled">Disable</string>
+    <string name="advanced_reboot_hide_on_keyguard">Hide on lock screen</string>
+    <string name="advanced_reboot_show_always">Show always</string>
+
     <!-- UI debug setting: enable/disable debug multi-window ui [CHAR LIMIT=25] -->
     <string name="enable_multi_window">Multi-window mode</string>
     <!-- setting Checkbox summary whether to enable debug multi-window ui [CHAR_LIMIT=50] -->
