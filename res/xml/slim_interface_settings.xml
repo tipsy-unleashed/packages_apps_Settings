@@ -19,6 +19,12 @@
     android:title="@string/interface_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <Preference
+        android:key="powermenu"
+        android:fragment="com.tipsy.fragments.PowerMenu"
+        android:layout="@layout/preference_powermenu"
+        android:title="@string/powermenu_category" />
+
     <!-- LMT PIE -->
     <Preference
         android:id="@+id/lmt_settings"
@@ -28,12 +34,6 @@
             android:targetPackage="com.android.lmt"
             android:targetClass="com.android.lmt.LMT" />
     </Preference>
-
-    <Preference
-        android:key="powermenu"
-        android:fragment="com.tipsy.fragments.PowerMenu"
-        android:layout="@layout/preference_powermenu"
-        android:title="@string/powermenu_category" />
 
     <PreferenceScreen
         android:key="status_bar"
