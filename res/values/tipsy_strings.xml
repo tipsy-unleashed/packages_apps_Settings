@@ -100,4 +100,7 @@
     <string name="notification_light_missed_call_title">Missed call</string>
     <string name="notification_light_voicemail_title">Voicemail</string>
 
+    <!-- LMT pie -->
+    <string name="lmt_settings">PIE Settings</string>
+
 </resources>
