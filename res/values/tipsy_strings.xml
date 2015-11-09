@@ -454,4 +454,8 @@
     <string name="omniswitch_first_time_title">Information</string>
     <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
 
+   <!-- Kill app long-press back -->
+   <string name="kill_app_longpress_back">Kill app back button</string>
+   <string name="kill_app_longpress_back_summary">Kill the foreground app by long-pressing the back button</string>
+
 </resources>
