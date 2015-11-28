@@ -90,7 +90,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_UBER_AND = "uber_android";
-    private static final String KEY_UBER_KERNEL = "uber_kernel";
     private static final String KEY_UBER_FLAGS = "uber_flags";
     private static final String KEY_SLIM_OTA = "slimota";
 
@@ -121,10 +120,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         setStringSummary(KEY_KERNEL_VERSION, getFormattedKernelVersion());
         findPreference(KEY_KERNEL_VERSION).setEnabled(true);
-        findPreference(KEY_UBER_KERNEL).setEnabled(true);
         findPreference(KEY_UBER_FLAGS).setEnabled(true);
         setValueSummary(KEY_UBER_AND, "ro.uber.android");
-        setValueSummary(KEY_UBER_KERNEL, "ro.uber.kernel");
         setValueSummary(KEY_UBER_FLAGS, "ro.uber.flags");
 
         if (!SELinux.isSELinuxEnabled()) {
