@@ -62,14 +62,10 @@
             android:fragment="com.android.settings.tipsy.Weather"
             android:title="@string/weather_category" />
 
-         <PreferenceScreen
-            android:key="systemui_tuner_qs"
-            android:title="@string/systemui_tuner_qs_title" >
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.QsActivity" />
-         </PreferenceScreen>
+         <Preference
+            android:key="quicksettings"
+            android:fragment="com.android.settings.tipsy.QuickSettings"
+            android:title="@string/quicksettings_category" />
 
          <PreferenceScreen
             android:key="systemui_tuner_statusbar"
