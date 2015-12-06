@@ -230,6 +230,12 @@
     <string name="weather_settings_title">LockClock settings</string>
     <string name="weather_settings_summary">Configure location for weather widget and other settings</string>
 
+    <!-- Left clock & date -->
+    <string name="left_clock">Left clock</string>
+    <string name="clock_date_position">Date position</string>
+    <string name="clock_date_right">Right of time</string>
+    <string name="clock_date_left">Left of time</string>
+
     <!-- Battery options -->
     <string name="battery_title">Battery</string>
     <string name="battery_category">Battery</string>
