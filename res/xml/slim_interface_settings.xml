@@ -40,6 +40,12 @@
         android:title="@string/lcd_density_title"
         android:fragment="com.android.settings.util.Density" />
 
+    <!-- Expanded desktop -->
+    <Preference
+        android:key="expanded_desktop"
+        android:fragment="com.android.settings.tipsy.ExpandedDesktop"
+        android:title="@string/expanded_desktop_category" />
+
     <PreferenceScreen
         android:key="status_bar"
         android:fragment="com.android.settings.slim.StatusBar"
