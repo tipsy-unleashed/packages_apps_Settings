@@ -503,4 +503,9 @@
     <string name="show_carrier_statusbar">Status bar carrier</string>
     <string name="show_carrier_enabled">Enabled</string>
 
+    <!-- Force expanded notifications -->
+    <string name="statusbar_notifications_category">Notifications</string>
+    <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
+    <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
+
 </resources>
