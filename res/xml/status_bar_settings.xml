@@ -19,14 +19,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/status_bar_title">
 
-    <!-- Status bar tweaks -->
-    <PreferenceCategory
-        android:title="@string/status_bar_style_title">
-
     <PreferenceScreen
             android:fragment="com.android.settings.slim.StatusBarClockStyle"
             android:key="clock_style_pref"
             android:title="@string/status_bar_clock" />
+            
+    <Preference
+            android:key="battery"
+            android:fragment="com.android.settings.tipsy.Battery"
+            android:title="@string/battery_category" />            
 
     <PreferenceScreen
 	    android:key="network_traffic_state"
@@ -39,8 +40,6 @@
            android:title="@string/double_tap_to_sleep_title"
            android:summary="@string/double_tap_to_sleep_summary"
            android:defaultValue="true" />
-
-    </PreferenceCategory>
 
          <com.android.settings.slim.SystemSettingSwitchPreference
             android:key="status_bar_custom_header"
