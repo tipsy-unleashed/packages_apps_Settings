@@ -47,4 +47,10 @@
             android:title="@string/status_bar_custom_header_title"
             android:summary="@string/status_bar_custom_header_summary"
             android:defaultValue="false"/>
+
+         <Preference
+            android:key="weather"
+            android:fragment="com.android.settings.tipsy.Weather"
+            android:title="@string/weather_category" />
+
 </PreferenceScreen>
