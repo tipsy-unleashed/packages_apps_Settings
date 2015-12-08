@@ -45,5 +45,10 @@
         android:fragment="com.android.settings.slim.StatusBar"
         android:title="@string/status_bar_title" />
 
+   <Preference
+        android:key="recents"
+        android:fragment="com.android.settings.tipsy.Recents"
+        android:title="@string/recents_category" />
+
     <Preference
 </PreferenceScreen>

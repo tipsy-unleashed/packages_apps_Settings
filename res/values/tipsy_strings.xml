@@ -441,6 +441,12 @@
     <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
     <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
 
+    <!-- Show/Hide Search Bar -->
+    <string name="recents_category">Recents</string>
+    <string name="recents_show_searchbar">Recents panel Search bar</string>
+    <string name="recents_searchbar_summary_enabled">Search bar in recents menu is enabled</string>
+    <string name="recents_searchbar_summary_disabled">Search bar in recents menu is disabled</string>
+
     <!-- USB debugging notification -->
     <string name="adb_notify">USB debugging notify</string>
     <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
