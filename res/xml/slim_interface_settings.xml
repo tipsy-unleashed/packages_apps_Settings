@@ -25,10 +25,20 @@
         android:layout="@layout/preference_powermenu"
         android:title="@string/powermenu_category" />
 
+    <Preference
+        android:key="animations"
+        android:fragment="com.android.settings.tipsy.Animations"
+        android:title="@string/animations_category" />
+
     <PreferenceScreen
         android:key="battery_bar"
         android:fragment="com.android.settings.slim.BatteryBar"
         android:title="@string/battery_bar" />
+
+    <PreferenceScreen
+        android:key="density_changer"
+        android:title="@string/lcd_density_title"
+        android:fragment="com.android.settings.util.Density" />
 
     <PreferenceScreen
         android:key="status_bar"
@@ -36,8 +46,4 @@
         android:title="@string/status_bar_title" />
 
     <Preference
-        android:key="animations"
-        android:fragment="com.android.settings.tipsy.Animations"
-        android:title="@string/animations_category" />
-
 </PreferenceScreen>
