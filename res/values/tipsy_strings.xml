@@ -13,7 +13,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- About phone screen, Validus version -->
+    <!-- About phone screen, Tipsy version -->
     <string name="mod_version">Tipsy version</string>
     <string name="mod_version_default">Unknown</string>
     <string name="model_name">Model name</string>
@@ -246,6 +246,12 @@
     <string name="status_bar_battery_percentage_default">Hidden (default)</string>
     <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
     <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
+
+    <!-- Show/Hide Search Bar -->
+    <string name="recents_category">Recents</string>
+    <string name="recents_show_searchbar">Recents panel Search bar</string>
+    <string name="recents_searchbar_summary_enabled">Search bar in recents menu is enabled</string>
+    <string name="recents_searchbar_summary_disabled">Search bar in recents menu is disabled</string>
 
     <!-- USB debugging notification -->
     <string name="adb_notify">USB debugging notify</string>
