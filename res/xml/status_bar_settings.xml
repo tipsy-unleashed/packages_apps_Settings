@@ -24,6 +24,11 @@
             android:key="clock_style_pref"
             android:title="@string/status_bar_clock" />
             
+         <PreferenceScreen
+            android:key="carrierlabel"
+            android:fragment="com.android.settings.tipsy.CarrierLabel"
+            android:title="@string/carrier_options" />
+
     <Preference
             android:key="battery"
             android:fragment="com.android.settings.tipsy.Battery"
