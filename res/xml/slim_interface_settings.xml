@@ -40,6 +40,11 @@
         android:title="@string/lcd_density_title"
         android:fragment="com.android.settings.util.Density" />
 
+    <PreferenceScreen
+       android:key="gesture_anywhere"
+       android:fragment="com.android.settings.tipsy.GestureAnywhereSettings"
+       android:title="@string/gesture_anywhere_title" />
+
     <!-- Expanded desktop -->
     <Preference
         android:key="expanded_desktop"

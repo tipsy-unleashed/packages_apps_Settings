@@ -2417,8 +2417,13 @@
                 android:value="true" />
         </activity>
 
+        <!-- Tipsy Activities -->
         <activity android:name=".notificationlight.NotificationLightSettings" />
         <activity android:name=".notificationlight.BatteryLightSettings" />
+        <activity android:name="com.android.settings.tipsy.Traffic" />
+        <activity android:name="com.android.settings.tipsy.GestureAnywhereBuilderActivity" />
+        <activity android:name="com.android.settings.tipsy.GestureAnywhereCreateGestureActivity" />
+	<!-- Tipsy Activities End -->
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"

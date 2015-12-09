@@ -104,6 +104,10 @@
 
     <color name="storage_summary_title_color">#ff607d8b</color>
 
+
+    <!-- Gesture Anywhere -->
+    <color name="ga_gesture_color">#009688</color>
+
     <!-- Expanded desktop -->
     <drawable name="expanded_item_bg_activated">#ffEEEEEE</drawable>
     <drawable name="expanded_item_bg">@android:color/background_light</drawable>
