@@ -147,6 +147,9 @@
     <string name="power_menu_animation_bottom">Bottom</string>
     <string name="power_menu_animation_top">Top</string>
     <string name="power_menu_animation_rotate">Rotation</string>
+
+   <!-- lock screen visualizer -->
+    <string name="lockscreen_visualizer_title">Display music visualizer</string>
     
 </resources>
 
