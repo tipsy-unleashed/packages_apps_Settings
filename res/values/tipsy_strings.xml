@@ -755,4 +755,6 @@
     <string name="reset_lockscreen_weather">OK</string>
     <string name="reset_values_message">Reset values?</string>
 
+    <!-- Volume keys control media stream, instead of ring/notification -->
+    <string name="volume_key_control_media">Volume keys control media volume</string>
 </resources>
