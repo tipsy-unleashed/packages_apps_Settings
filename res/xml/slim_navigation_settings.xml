@@ -29,6 +29,11 @@
         android:fragment="com.android.settings.slim.NavbarSettings"
         android:title="@string/navigation_bar" />
 
+    <PreferenceScreen
+        android:key="app_circle_bar"
+        android:fragment="com.android.settings.tipsy.AppCircleBar"
+        android:title="@string/app_circle_bar_title" />
+
     <!--<PreferenceScreen
         android:key="pie_settings"
         android:fragment="com.android.settings.slim.PieControl"
