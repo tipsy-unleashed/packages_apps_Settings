@@ -67,6 +67,13 @@
             android:title="@string/emergency_tone_title"
             android:persistent="false" />
 
+    <!-- Screenshot tone -->
+    <com.android.settings.slim.SystemSettingSwitchPreference
+            android:key="screenshot_sound"
+            android:title="@string/screenshot_sound_title"
+            android:summary="@string/screenshot_sound_summary"
+            android:defaultValue="true" />
+
     <PreferenceCategory
             android:title="@string/power_notifications_category_title"/>
 
