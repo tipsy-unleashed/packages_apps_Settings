@@ -398,7 +398,7 @@
 
     <!-- Navigation bar -->
     <string name="navigation_bar_category">Navigation bar</string>
-    <string name="navbar_enable_bar">Enable</string>
+    <string name="navbar_enable_bar">Enable navbar</string>
     <string name="navbar_dimen_title">Dimensions</string>
     <string name="navbar_dimensions_reset_message">Reset all dimensions entries to default?</string>
     <string name="navigation_bar_height_title">Navigation bar height</string>
