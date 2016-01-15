@@ -18,6 +18,7 @@ package com.android.settings.dashboard;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Typeface;
 import android.os.UserHandle;
@@ -32,6 +33,8 @@ import android.widget.TextView;
 import com.android.settings.ProfileSelectDialog;
 import com.android.settings.R;
 import com.android.settings.Utils;
+
+import com.android.internal.util.gzr.FontHelper;
 
 public class DashboardTileView extends FrameLayout implements View.OnClickListener {
 
@@ -84,13 +87,16 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
                 Settings.System.SETTINGS_TITLE_TEXT_SIZE, 18,
                 UserHandle.USER_CURRENT));
         setFocusable(true);
+        updateDashFont();
     }
 
     public TextView getTitleTextView() {
+        updateDashFont();
         return mTitleTextView;
     }
 
     public TextView getStatusTextView() {
+        updateDashFont();
         return mStatusTextView;
     }
 
@@ -130,4 +136,105 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
             }
         }
     }
-}
+    private void updateDashFont() {
+        final int mDashFontStyle = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DASHBOARD_FONT_STYLE, FontHelper.FONT_NORMAL);
+
+        getFontStyle(mDashFontStyle);
+    }
+    public void getFontStyle(int font) {
+        switch (font) {
+            case FontHelper.FONT_NORMAL:
+            default:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_BOLD:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_BOLD_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_LIGHT:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_LIGHT_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_THIN:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_THIN_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_CONDENSED:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_CONDENSED_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_CONDENSED_LIGHT:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_CONDENSED_LIGHT_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_CONDENSED_BOLD:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                break;
+            case FontHelper.FONT_CONDENSED_BOLD_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                break;
+            case FontHelper.FONT_MEDIUM:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_MEDIUM_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                break;
+            case FontHelper.FONT_BLACK:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+                break;
+            case FontHelper.FONT_BLACK_ITALIC:
+                mTitleTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+                mStatusTextView.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+//                categoryLabel.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+                break;
+        }
+    }
+  }
