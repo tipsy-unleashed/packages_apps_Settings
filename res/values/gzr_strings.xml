@@ -212,6 +212,10 @@
     <string name="qs_tile_animation_duration_fast">fast</string>
     <string name="qs_set_animation_style">Animation is set to %1$s</string>
     <string name="qs_set_animation_duration">Animation duration is set to %1$s</string>
+
+    <!-- Transparency -->
+    <string name="qs_transparent_cat_title">QS Transparency</string>
+    <string name="qs_transparent_shade">Shade transparency</string>
     
 </resources>
 
