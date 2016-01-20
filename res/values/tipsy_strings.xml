@@ -581,4 +581,9 @@
     <string name="omniswitch_first_time_title">Information</string>
     <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
 
+    <!-- Dashboard tileview double lines -->
+    <string name="dashboard_tileview_double_lines_title">Dashboard tile title</string>
+    <string name="dashboard_tileview_double_lines_summary_on">Show dashboard titles in 1 line</string>
+    <string name="dashboard_tileview_double_lines_summary_off">Show dashboard titles in 2 lines</string>
+
 </resources>
