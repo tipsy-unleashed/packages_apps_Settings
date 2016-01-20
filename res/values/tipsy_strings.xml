@@ -537,4 +537,9 @@
 
     <string name="settings_reset_button">Reset</string>
 
+    <!-- Dashboard tileview double lines -->
+    <string name="dashboard_tileview_double_lines_title">Dashboard tile title</string>
+    <string name="dashboard_tileview_double_lines_summary_on">Show dashboard titles in 1 line</string>
+    <string name="dashboard_tileview_double_lines_summary_off">Show dashboard titles in 2 lines</string>
+
 </resources>
