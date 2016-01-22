@@ -56,7 +56,7 @@ public class DashboardContainerView extends ViewGroup {
 
     private int getDashboardNumColumns() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.DASHBOARD_COLUMNS, 1);
+                Settings.System.DASHBOARD_COLUMNS, 2);
     }
 
     @Override
