@@ -72,13 +72,20 @@
 
     </dashboard-category>
 
-        <!-- Navigation -->
+        <!-- PERSONALIZATION -->
+        <dashboard-category
+            android:id="@+id/personalization_section"
+            android:title="@string/header_category_personalization" >
+            
+       <!-- Navigation -->
         <dashboard-tile
                 android:id="@+id/navigation_settings"
                 android:icon="@drawable/ic_settings_navigation"
                 android:fragment="com.android.settings.slim.NavigationSettings"
                 android:title="@string/navigation_settings_title"
                 />
+
+    </dashboard-category>
 
     <!-- DEVICE -->
     <dashboard-category
