@@ -337,7 +337,6 @@
 
     <!-- Navigation bar button color -->
     <string name="navbar_button_tint_title">Navigation button tint</string>
-    <string name="omniswitch_recents_title">OmniSwitch recents</string>
 
     <!-- Carrier Label -->
     <string name="carrier_options">Carrier Label</string>
