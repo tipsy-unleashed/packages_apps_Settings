@@ -449,15 +449,6 @@
     <string name="trigger_bottom_title">Trigger height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
 
-    <!-- OmniSwitch -->
-    <string name="omniswitch_category">OmniSwitch</string>
-    <string name="recents_use_omniswitch_title">Use for recents</string>
-    <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
-    <string name="omniswitch_start_settings_title">Settings</string>
-    <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
-    <string name="omniswitch_first_time_title">Information</string>
-    <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
-    <string name="omniswitch_settings_title">OmniSwitch</string>
 
    <!-- Kill app long-press back -->
    <string name="kill_app_longpress_back">Kill app back button</string>
@@ -633,5 +624,4 @@
     <string name="select_custom_app_title">Select custom app</string>
     <string name="select_custom_activity_title">Select custom activity</string>
     <string name="profile_applist_title">Applications</string>
-
 </resources>
