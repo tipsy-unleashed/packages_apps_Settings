@@ -24,6 +24,19 @@
 -keep class com.tipsy.**
 -keep class com.tipsy.fragments.**
 
+-keep class com.android.settings.cyanogenmod.*Settings
+-keep class com.android.settings.privacyguard.*
+
+# These would be stripped out since they are being created with reflection
+-keep class com.android.settings.dashboard.GenericSwitchToggle { *; }
+-keep class com.android.settings.wifi.WifiEnabler { *; }
+-keep class com.android.settings.bluetooth.BluetoothEnabler { *; }
+-keep class com.android.settings.dashboard.MobileNetworksEnabler { *; }
+
+# Keep Omni stuff
+-keep class org.omnirom.omniswitch.*
+-keep class org.**
+
 # Keep click responders
 -keepclassmembers class com.android.settings.inputmethod.UserDictionaryAddWordActivity {
   *** onClick*(...);
