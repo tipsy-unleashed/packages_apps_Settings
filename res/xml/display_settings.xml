@@ -131,6 +131,11 @@
                 android:summary="@string/wake_when_plugged_or_unplugged_summary"
                 android:defaultValue="false" />
 
+        <SwitchPreference
+                android:key="volume_rocker_wake"
+                android:summary="@string/volume_rocker_wake_summary"
+                android:title="@string/volume_rocker_wake_title" />
+
                     
                 <!-- Toast Icons -->
                 <com.android.settings.slim.SystemSettingSwitchPreference
