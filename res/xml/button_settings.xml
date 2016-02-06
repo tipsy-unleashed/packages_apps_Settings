@@ -62,6 +62,17 @@
         android:dialogTitle="@string/button_backlight_title"
         android:persistent="false" />
 
+        <com.android.settings.slim.SystemSettingSwitchPreference
+            android:key="volume_wake_screen"
+            android:title="@string/button_wake_title"
+            android:defaultValue="true" />
+
+        <com.android.settings.slim.SystemSettingSwitchPreference
+            android:key="volbtn_music_controls"
+            android:title="@string/volbtn_music_controls_title"
+            android:summary="@string/volbtn_music_controls_summary"
+            android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
@@ -126,16 +137,5 @@
             android:persistent="false" />
 
     </PreferenceCategory>
-
-        <com.android.settings.slim.SystemSettingSwitchPreference
-            android:key="volume_wake_screen"
-            android:title="@string/button_wake_title"
-            android:defaultValue="true" />
-
-        <com.android.settings.slim.SystemSettingSwitchPreference
-            android:key="volbtn_music_controls"
-            android:title="@string/volbtn_music_controls_title"
-            android:summary="@string/volbtn_music_controls_summary"
-            android:defaultValue="true" />
 
 </PreferenceScreen>
