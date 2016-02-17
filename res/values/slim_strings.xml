@@ -874,4 +874,8 @@
     <string name="changelog_tipsy_title">Changelog</string>
     <string name="changelog_tipsy_error">Unable to load changelog</string>
 
+    <!-- Gesture Settings -->
+    <!-- Settings main menu entry -->
+    <string name="gesture_settings_title">Device specific gestures</string>
+
 </resources>
