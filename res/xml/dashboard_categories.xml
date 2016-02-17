@@ -84,6 +84,14 @@
                 android:title="@string/interface_settings_title"
                 />
 
+       <!-- Navigation -->
+        <dashboard-tile
+                android:id="@+id/navigation_settings"
+                android:icon="@drawable/ic_settings_navigation"
+                android:fragment="com.android.settings.slim.NavigationSettings"
+                android:title="@string/navigation_settings_title"
+                />
+
 	<!-- Layers -->
         <dashboard-tile
                 android:id="@+id/bitsyko_layers"
@@ -94,21 +102,6 @@
                 android:targetPackage="com.lovejoy777.rroandlayersmanager"
                 android:targetClass="com.lovejoy777.rroandlayersmanager.menu" />
         </dashboard-tile>
-
-    </dashboard-category>
-
-        <!-- PERSONALIZATION -->
-        <dashboard-category
-            android:id="@+id/personalization_section"
-            android:title="@string/header_category_personalization" >
-            
-       <!-- Navigation -->
-        <dashboard-tile
-                android:id="@+id/navigation_settings"
-                android:icon="@drawable/ic_settings_navigation"
-                android:fragment="com.android.settings.slim.NavigationSettings"
-                android:title="@string/navigation_settings_title"
-                />
 
     </dashboard-category>
 

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<!-- Copyright (C) 2012-2014 SlimRoms Project
-=======
-<!-- Copyright (C) 2012-2015 SlimRoms Project
->>>>>>> b2f3cea... Settings: statusbar clock customization + initial Tavern + color
+<!-- Copyright (C) 2012-2016 SlimRoms Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -16,8 +12,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-<<<<<<< HEAD
-    <!-- Icon type for shorcuts. -->
     <string-array name="icon_types">
         <item>@string/shortcuts_icon_default</item>
         <item>@string/shortcuts_icon_presets</item>
@@ -195,7 +189,11 @@
 
     <!-- right is the default, easier to keep 0 as first index -->
     <string-array name="pref_navigation_menu_values" translatable="false">
-=======
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- Clock and date -->
     <string-array name="clock_style_entries" translatable="false">
         <item>@string/right_clock</item>
@@ -214,13 +212,11 @@
     </string-array>
 
     <string-array name="values_status_bar_am_pm" translatable="false">
->>>>>>> b2f3cea... Settings: statusbar clock customization + initial Tavern + color
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
-<<<<<<< HEAD
     <string-array name="pref_menu_display_entries">
         <item>@string/navigation_menu_always_show</item>
         <item>@string/navigation_menu_never_show</item>
@@ -228,7 +224,11 @@
     </string-array>
 
     <string-array name="pref_menu_display_values" translatable="false">
-=======
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="clock_date_display_entries">
         <item>@string/clock_date_display_none</item>
         <item>@string/clock_date_display_small</item>
@@ -236,13 +236,11 @@
     </string-array>
 
     <string-array name="clock_date_display_values" translatable="false">
->>>>>>> b2f3cea... Settings: statusbar clock customization + initial Tavern + color
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
-<<<<<<< HEAD
     <string-array name="navigation_bar_width_entries" translatable="false">
         <item>@string/navigation_bar_size_42_dp_default</item>
         <item>@string/navigation_bar_size_40_dp</item>
@@ -370,7 +368,8 @@
         <item>**assist**</item>
         <item>**voice_search**</item>
         <item>**null**</item>
-=======
+    </string-array>
+
     <string-array name="clock_date_style_entries">
         <item>@string/clock_date_style_normal</item>
         <item>@string/clock_date_style_lowercase</item>
@@ -403,7 +402,6 @@
         <item>EEEE dd/MM</item>
         <item>EEEE MM/dd</item>
         <item>@string/clock_date_format_custom</item>
->>>>>>> b2f3cea... Settings: statusbar clock customization + initial Tavern + color
     </string-array>
 
 </resources>
