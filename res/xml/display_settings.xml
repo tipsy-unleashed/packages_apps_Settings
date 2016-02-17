@@ -107,6 +107,12 @@
                 android:summaryOff="@string/dashboard_tileview_double_lines_summary_off"
                 android:defaultValue="false" />
 
+        <com.android.settings.slim.SystemSettingSwitchPreference
+                android:key="dashboard_tileview_dividers"
+                android:title="@string/dashboard_tileview_dividers_title"
+                android:summary="@string/dashboard_tileview_dividers_summary"
+                android:defaultValue="false" />
+
        <com.android.settings.FontDialogPreference
                 android:key="font_size"
                 android:title="@string/title_font_size"
