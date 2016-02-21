@@ -15,10 +15,11 @@
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
-    android:viewportHeight="24">
+    android:viewportHeight="24"
+    android:tint="?android:attr/colorAccent">
 
     <path
-        android:fillColor="#029487"
+        android:fillColor="@android:color/black"
         android:pathData="M9.30078,3.03906 C7.17969,3.73828,5.46875,5.12109,4.28906,7.07813
 C3.65625,8.13281,3.26953,9.28906,3.10547,10.6211
 C3.05469,11.0352,3.05469,12.3203,3.10547,12.7383
