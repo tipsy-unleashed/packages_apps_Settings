@@ -72,10 +72,6 @@
 
     <!-- Tipsy personalization category -->
     <string name="header_category_personalization">Tipsy things</string>
-
-    <!-- HW keys switch -->
-    <string name="enable_navkeys_title">Enables hardware buttons</string>
-    <string name="enable_navkeys_summary"> </string>
     
 </resources>
 
