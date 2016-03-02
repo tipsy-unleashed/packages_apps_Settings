@@ -44,4 +44,8 @@
     <!-- DDS Switch setting -->
     <bool name="config_dds_switch_alert_dialog_supported" translatable="false">false</bool>
 
+    <!-- Home button Wake Support. Some devices do not support this.
+         Setting to false will disable Home button Wake support -->
+    <bool name="config_show_homeWake">false</bool>
+
 </resources>
