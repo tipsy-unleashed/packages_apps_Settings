@@ -37,7 +37,6 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.WindowManagerGlobal;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.slim.AppHelper;
@@ -169,8 +168,6 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
 
         int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
-        int deviceWakeKeys = getResources().getInteger(
-                com.android.internal.R.integer.config_deviceHardwareWakeKeys);
 
         boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
         boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
@@ -178,10 +175,7 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
         boolean hasAssistKey = (deviceKeys & KEY_MASK_ASSIST) != 0;
         boolean hasAppSwitchKey = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
         boolean hasCameraKey = (deviceKeys & KEY_MASK_CAMERA) != 0;
-        boolean showHomeWake = (deviceWakeKeys & KEY_MASK_HOME) != 0;
 
-        PreferenceCategory homeCategory =
-                (PreferenceCategory) prefs.findPreference(CATEGORY_HOME);
         PreferenceCategory keysCategory =
                 (PreferenceCategory) prefs.findPreference(CATEGORY_KEYS);
         PreferenceCategory keysBackCategory =
@@ -281,12 +275,6 @@ public class HardwareKeysSettings extends SettingsPreferenceFragment implements
         }
 
         if (hasHomeKey) {
-
-            // Home key wake
-            if (!showHomeWake) {
-                homeCategory.removePreference(findPreference(Settings.System.HOME_WAKE_SCREEN));
-            }
-
             // Home key
             setupOrUpdatePreference(mHomePressAction,
                     HwKeyHelper.getPressOnHomeBehavior(getActivity(), false),
