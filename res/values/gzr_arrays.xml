@@ -21,6 +21,7 @@
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_menu_big</item>
+        <item>@string/shortcut_action_now_on_tap</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_ring_silent</item>
@@ -41,6 +42,7 @@
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**menu_big**</item>
+        <item>**now_on_tap**</item>
         <item>**ime**</item>
         <item>**recents**</item>
         <item>**ring_silent**</item>
