@@ -21,6 +21,7 @@
 -keep class com.android.settings.tipsy.*
 -keep class com.tipsy.**
 -keep class com.tipsy.fragments.**
+-keep class com.kerneladiutor.mod.*
 
 # Keep click responders
 -keepclassmembers class com.android.settings.inputmethod.UserDictionaryAddWordActivity {
