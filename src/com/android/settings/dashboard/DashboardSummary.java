@@ -26,6 +26,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -148,6 +150,9 @@ public class DashboardSummary extends InstrumentedFragment {
 
             TextView categoryLabel = (TextView) categoryView.findViewById(R.id.category_title);
             categoryLabel.setText(category.getTitle(res));
+            categoryLabel.setTextSize(Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.SETTINGS_CATEGORY_TEXT_SIZE, 14,
+                UserHandle.USER_CURRENT));
 
             ViewGroup categoryContent =
                     (ViewGroup) categoryView.findViewById(R.id.category_content);

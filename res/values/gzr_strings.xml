@@ -153,6 +153,10 @@
 
    <!-- lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Display music visualizer</string>
+
+    <!-- Dashboard text size -->
+    <string name="dash_title_text_size">Title Text Size</string>
+    <string name="dash_category_text_size">Category Text Size</string>
     
 </resources>
 
