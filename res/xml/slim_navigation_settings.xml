@@ -39,4 +39,14 @@
         android:fragment="com.android.settings.slim.PieControl"
         android:title="@string/pie_control_title" />-->
 
+        <!-- Notification Slider -->
+        <Preference
+                android:id="@+id/notification_slider"
+                android:title="@string/notification_slider">
+            <intent
+                    android:action="com.slim.action.LAUNCH_NOTIFICATION_SLIDER_SETTINGS"
+                    android:targetPackage="com.slim.device"
+                    android:targetClass="com.slim.device.settings.SliderSettings" />
+        </Preference>
+
 </PreferenceScreen>
