@@ -85,7 +85,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
             = "camera_double_tap_power_gesture";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
-    private static final String KEY_SCREEN_OFF_GESTURE_SETTINGS = "screen_off_gesture_settings";
 
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
 
@@ -218,10 +217,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mNightModePreference.setValue(String.valueOf(currentNightMode));
             mNightModePreference.setOnPreferenceChangeListener(this);
         }
-
-        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
-                getPreferenceScreen(), KEY_SCREEN_OFF_GESTURE_SETTINGS);
-
     }
 
     private static boolean allowAllRotations(Context context) {
