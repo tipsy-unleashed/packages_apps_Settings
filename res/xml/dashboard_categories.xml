@@ -114,6 +114,16 @@
                 android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
         </dashboard-tile>
 
+        <!-- Notification Slider -->
+        <dashboard-tile
+                android:id="@+id/notification_slider"
+                android:icon="@drawable/ic_settings_notification_slider">
+            <intent
+                    android:action="com.cyanogenmod.action.LAUNCH_NOTIFICATION_SLIDER_SETTINGS"
+                    android:targetPackage="com.cyanogenmod.settings.device"
+                    android:targetClass="com.cyanogenmod.settings.device.SliderSettings" />
+        </dashboard-tile>
+
         <!-- Viper4Android -->
         <dashboard-tile
                 android:id="@+id/equalizer_settings"

@@ -150,9 +150,6 @@
 
    <!-- lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Display music visualizer</string>
-
-    <!-- Notification slider -->
-    <string name="notification_slider">Notification slider</string>
     
 </resources>
 
