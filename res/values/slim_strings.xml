@@ -216,11 +216,6 @@
     <string name="attention">Attention</string>
     <string name="enabled">Enabled</string>
     <string name="default_string">Default</string>
-    <string name="profiles_add">Add</string>
-    <string name="profile_choose_app">Choose app</string>
-    <string name="profile_reset_title">Reset</string>
-    <string name="add">Add</string>
-    <string name="choose_app">Choose app</string>
     <string name="reset_message">Reset all entries to default?</string>
 
     <!-- Slim settings screens -->
