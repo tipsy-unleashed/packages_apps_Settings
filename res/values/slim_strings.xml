@@ -732,9 +732,9 @@
     <string name="keys_assist_press_title">Search key</string>
     <string name="keys_assist_long_press_title">Search key (long press)</string>
     <string name="keys_assist_double_tap_title">Search key (double tap)</string>
-    <string name="keys_app_switch_press_title">App switch key</string>
-    <string name="keys_app_switch_long_press_title">App switch key (long press)</string>
-    <string name="keys_app_switch_double_tap_title">App switch key (double tap)</string>
+    <string name="keys_app_switch_press_title">Menu key</string>
+    <string name="keys_app_switch_long_press_title">Menu key (long press)</string>
+    <string name="keys_app_switch_double_tap_title">Menu key (double tap)</string>
     <string name="keys_camera_press_title">Camera key</string>
     <string name="keys_camera_long_press_title">Camera key (long press)</string>
     <string name="keys_camera_double_tap_title">Camera key (double tap)</string>
