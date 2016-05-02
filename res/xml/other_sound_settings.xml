@@ -84,6 +84,12 @@
             android:dependency="power_notifications"
             android:persistent="false" />
 
+    <com.android.settings.slim.VibratorIntensity
+        android:key="vibration_intensity"
+        android:title="@string/vibrator_intensity_title"
+        android:dialogTitle="@string/vibrator_intensity_title"
+        android:persistent="false" />
+
     <Preference
             android:key="power_notifications_ringtone"
             android:title="@string/power_notifications_ringtone_title"
