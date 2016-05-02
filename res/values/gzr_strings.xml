@@ -153,10 +153,6 @@
 
    <!-- lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Display music visualizer</string>
-
-    <!-- Vibrator intensity -->
-    <string name="vibrator_intensity_title">Vibrator intensity</string>
-    <string name="vibrator_warning">Values higher than %1$d are not recommended</string>
     
 </resources>
 
