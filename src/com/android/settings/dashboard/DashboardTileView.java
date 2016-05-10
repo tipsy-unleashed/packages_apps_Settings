@@ -18,6 +18,9 @@ package com.android.settings.dashboard;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.Typeface;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -38,6 +41,7 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
     private TextView mTitleTextView;
     private TextView mStatusTextView;
     private View mDivider;
+    private int mDashTextSize = 14;
 
     private int mColSpan = DEFAULT_COL_SPAN;
 
@@ -73,6 +77,12 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
 
         setOnClickListener(this);
         setBackgroundResource(R.drawable.dashboard_tile_background);
+        mStatusTextView.setTextSize(Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.SETTINGS_TITLE_TEXT_SIZE, 14,
+                UserHandle.USER_CURRENT));
+        mTitleTextView.setTextSize(Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.SETTINGS_TITLE_TEXT_SIZE, 18,
+                UserHandle.USER_CURRENT));
         setFocusable(true);
     }
 

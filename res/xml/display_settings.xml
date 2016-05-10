@@ -113,6 +113,24 @@
                 android:summary="@string/dashboard_tileview_dividers_summary"
                 android:defaultValue="false" />
 
+        <com.android.settings.chameleonos.SeekBarPreference
+                android:key="settings_category_text_size"
+                android:title="@string/dash_category_text_size"
+                android:defaultValue="14"
+                android:max="25"
+                settings:min="4"
+                settings:unitsLeft=""
+                settings:unitsRight="dp" />
+
+        <com.android.settings.chameleonos.SeekBarPreference
+                android:key="settings_title_text_size"
+                android:title="@string/dash_title_text_size"
+                android:defaultValue="14"
+                android:max="25"
+                settings:min="4"
+                settings:unitsLeft=""
+                settings:unitsRight="dp" />
+
        <com.android.settings.FontDialogPreference
                 android:key="font_size"
                 android:title="@string/title_font_size"
