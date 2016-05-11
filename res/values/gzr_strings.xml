@@ -94,6 +94,7 @@
     <!-- Dashboard tileview dividers -->
     <string name="dashboard_tileview_dividers_title">Dashboard dividers</string>
     <string name="dashboard_tileview_dividers_summary">Hide dashboard tile dividers</string>
+    <string name="dashboard_category">Dashboard settings</string>
 
     <!-- Profiles -->
     <string name="profile_reset_title">Reset</string>
