@@ -139,6 +139,13 @@
                 android:summary="@string/dashboard_tileview_dividers_summary"
                 android:defaultValue="false" />
 
+       <com.android.settings.FontDialogPreference
+                android:key="font_size"
+                android:title="@string/title_font_size"
+                settings:keywords="@string/keywords_display_font_size"
+                android:summary="@string/summary_font_size"
+                android:dialogTitle="@string/dialog_title_font_size" />
+
         <ListPreference
                 android:key="dashboard_font_style"
                 android:entries="@array/status_bar_font_style_entries"
@@ -162,13 +169,6 @@
                 settings:min="4"
                 settings:unitsLeft=""
                 settings:unitsRight="dp" />
-
-       <com.android.settings.FontDialogPreference
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                settings:keywords="@string/keywords_display_font_size"
-                android:summary="@string/summary_font_size"
-                android:dialogTitle="@string/dialog_title_font_size" />
 
    </PreferenceCategory>
 
