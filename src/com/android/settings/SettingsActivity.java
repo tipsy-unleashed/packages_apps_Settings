@@ -114,6 +114,7 @@ import com.android.settings.print.PrintJobSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
 import com.android.settings.search.DynamicIndexableContentMonitor;
 import com.android.settings.search.Index;
+import com.android.settings.privacyguard.PrivacyGuardPrefs;
 import com.android.settings.sim.SimSettings;
 import com.android.settings.slim.NavigationSettings;
 import com.android.settings.tts.TextToSpeechSettings;
@@ -282,7 +283,7 @@ public class SettingsActivity extends Activity
             R.id.nfc_payment_settings,
             R.id.home_settings,
             R.id.personalization_section,
-            R.id.dashboard
+            R.id.dashboard,
     };
 
     private static final String[] ENTRY_FRAGMENTS = {

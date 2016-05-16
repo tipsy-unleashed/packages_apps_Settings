@@ -61,4 +61,9 @@
         android:fragment="com.android.settings.tipsy.Recents"
         android:title="@string/recents_category" />
 
+    <Preference
+        android:key="weather"
+        android:fragment="com.android.settings.tipsy.Weather"
+        android:title="@string/weather_category" />
+
 </PreferenceScreen>
