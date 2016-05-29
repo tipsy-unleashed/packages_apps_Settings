@@ -48,6 +48,13 @@
         android:entryValues="@array/qs_tile_animation_duration_values"
         android:persistent="false" />
 
+    <ListPreference
+        android:key="qs_tile_animation_interpolator"
+        android:title="@string/qs_tile_animation_interpolator_title"
+        android:entries="@array/qs_tile_animation_interpolator_entries"
+        android:entryValues="@array/qs_tile_animation_interpolator_values"
+        android:persistent="false" />
+
     <com.android.settings.slim.SystemSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
@@ -67,11 +74,11 @@
         android:key="category_qs_transparency"
         android:title="@string/qs_transparent_cat_title" >
 
-        <com.android.settings.tesla.SeekBarPreference
+        <com.android.settings.chameleonos.SeekBarPreference
             android:key="qs_transparent_shade"
             android:title="@string/qs_transparent_shade"
             android:max="255"
-            settings:minimum="0"
+            settings:min="0"
             settings:unitsLeft=""
             settings:unitsRight=""
             android:persistent="false" />
