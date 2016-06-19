@@ -45,6 +45,8 @@
     <string name="keys_action_long">Long press</string>
     <string name="keys_action_double">Double tap</string>
     <string name="no_home_key">You have no button assigned any more to the \"Home\" action!\n\nThis can make your device unusable!</string>
+    <string name="button_wake_title">Wake up</string>
+    <string name="home_wake_summary">Pressing the home button will wake your device</string>
 
     <!-- Button shorcut actions -->
     <string name="shortcut_action_back">Back</string>
