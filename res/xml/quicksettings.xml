@@ -34,6 +34,27 @@
         android:entryValues="@array/quick_pulldown_values"
         android:persistent="false" />
 
+    <ListPreference
+        android:key="qs_tile_animation_style"
+        android:title="@string/qs_tile_animation_style_title"
+        android:entries="@array/qs_tile_animation_style_entries"
+        android:entryValues="@array/qs_tile_animation_style_values"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="qs_tile_animation_duration"
+        android:title="@string/qs_tile_animation_duration_title"
+        android:entries="@array/qs_tile_animation_duration_entries"
+        android:entryValues="@array/qs_tile_animation_duration_values"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="qs_tile_animation_interpolator"
+        android:title="@string/qs_tile_animation_interpolator_title"
+        android:entries="@array/qs_tile_animation_interpolator_entries"
+        android:entryValues="@array/qs_tile_animation_interpolator_values"
+        android:persistent="false" />
+
     <com.android.settings.slim.SystemSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
@@ -48,5 +69,20 @@
            android:targetPackage="com.android.systemui"
            android:targetClass="com.android.systemui.tuner.QsActivity" />
     </PreferenceScreen>
+
+    <PreferenceCategory
+        android:key="category_qs_transparency"
+        android:title="@string/qs_transparent_cat_title" >
+
+        <com.android.settings.chameleonos.SeekBarPreference
+            android:key="qs_transparent_shade"
+            android:title="@string/qs_transparent_shade"
+            android:max="255"
+            settings:min="0"
+            settings:unitsLeft=""
+            settings:unitsRight=""
+            android:persistent="false" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
