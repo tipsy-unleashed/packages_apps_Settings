@@ -228,6 +228,10 @@
     <!-- Transparency -->
     <string name="qs_transparent_cat_title">QS Transparency</string>
     <string name="qs_transparent_shade">Shade transparency</string>
+
+    <!-- Screenshot sound -->
+    <string name="screenshot_sound_title">Screenshot sound</string>
+    <string name="screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
     
 </resources>
 
