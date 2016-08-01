@@ -122,6 +122,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
+    private SwitchPreference mProximityCheckOnWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
     private SwitchPreference mCameraDoubleTapPowerGesturePreference;
@@ -297,10 +298,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
 	mWakeUpOptions = (PreferenceCategory) prefSet.findPreference(KEY_WAKEUP_CATEGORY);
 
+        mProximityCheckOnWakePreference = (SwitchPreference) findPreference(KEY_PROXIMITY_WAKE);
         boolean proximityCheckOnWake = getResources().getBoolean(
                 com.android.internal.R.bool.config_proximityCheckOnWake);
         if (!proximityCheckOnWake) {
-            mWakeUpOptions.removePreference(findPreference(KEY_PROXIMITY_WAKE));
+            if (mWakeUpOptions != null && mProximityCheckOnWakePreference != null) {
+                mWakeUpOptions.removePreference(findPreference(KEY_PROXIMITY_WAKE));
+            }
             Settings.System.putInt(resolver, Settings.System.PROXIMITY_ON_WAKE, 0);
         }
 
