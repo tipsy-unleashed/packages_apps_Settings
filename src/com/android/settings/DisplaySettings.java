@@ -91,6 +91,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_SCREEN_OFF_GESTURE_SETTINGS = "screen_off_gesture_settings";
     private static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+    private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
+    private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
+
+    private static final String ROTATION_LOCKSCREEN = "Lockscreen";
 
     private static final String SETTINGS_TITLE_TEXT_SIZE  = "settings_title_text_size";
     private static final String SETTINGS_CATEGORY_TEXT_SIZE  = "settings_category_text_size";
@@ -118,10 +122,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
+    private SwitchPreference mProximityCheckOnWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
     private SwitchPreference mCameraDoubleTapPowerGesturePreference;
     private SwitchPreference mVolumeRockerWake;
+    private PreferenceCategory mWakeUpOptions;
     private SeekBarPreference mDashTitleTextSize;
     private SeekBarPreference mDashCategoryTextSize;
     private ListPreference mDashFontStyle;
@@ -154,6 +160,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = activity.getContentResolver();
 
         addPreferencesFromResource(R.xml.display_settings);
+        
+        mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
+
+        PreferenceScreen prefSet = getPreferenceScreen();
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
         if (mScreenSaverPreference != null
@@ -284,6 +294,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             if (screenshotPrefs != null && mScreenshotCropBehaviorPreference != null) {
                 screenshotPrefs.removePreference(mScreenshotCropBehaviorPreference);
             }
+        }
+
+	mWakeUpOptions = (PreferenceCategory) prefSet.findPreference(KEY_WAKEUP_CATEGORY);
+
+        mProximityCheckOnWakePreference = (SwitchPreference) findPreference(KEY_PROXIMITY_WAKE);
+        boolean proximityCheckOnWake = getResources().getBoolean(
+                com.android.internal.R.bool.config_proximityCheckOnWake);
+        if (!proximityCheckOnWake) {
+            if (mWakeUpOptions != null && mProximityCheckOnWakePreference != null) {
+                mWakeUpOptions.removePreference(findPreference(KEY_PROXIMITY_WAKE));
+            }
+            Settings.System.putInt(resolver, Settings.System.PROXIMITY_ON_WAKE, 0);
         }
 
     }

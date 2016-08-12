@@ -96,6 +96,12 @@
                 android:summary="@string/volume_rocker_wake_summary"
                 android:title="@string/volume_rocker_wake_title" />
 
+        <com.android.settings.slim.SystemSettingSwitchPreference
+                android:key="proximity_on_wake"
+                android:title="@string/proximity_wake_title"
+                android:summary="@string/proximity_wake_summary"
+                android:defaultValue="false" />
+
         <!-- Toast Icons -->
         <com.android.settings.slim.SystemSettingSwitchPreference
                 android:key="toast_icon"
